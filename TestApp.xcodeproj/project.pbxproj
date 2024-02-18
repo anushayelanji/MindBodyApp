@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		41B003712B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41B0036F2B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodeld */; };
+		41B003732B82BFD900DD5CF7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B003722B82BFD900DD5CF7 /* CoreDataManager.swift */; };
 		52A8160C2B7C2323008A7590 /* TestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A8160B2B7C2323008A7590 /* TestAppApp.swift */; };
 		52A8160E2B7C2323008A7590 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A8160D2B7C2323008A7590 /* ContentView.swift */; };
 		52A816102B7C2324008A7590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52A8160F2B7C2324008A7590 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		41B003702B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MindBodyModel.xcdatamodel; sourceTree = "<group>"; };
+		41B003722B82BFD900DD5CF7 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		52A816082B7C2323008A7590 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A8160B2B7C2323008A7590 /* TestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppApp.swift; sourceTree = "<group>"; };
 		52A8160D2B7C2323008A7590 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				52A816112B7C2324008A7590 /* TestApp.entitlements */,
 				52A816122B7C2324008A7590 /* Preview Content */,
 				41B0036F2B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodeld */,
+				41B003722B82BFD900DD5CF7 /* CoreDataManager.swift */,
 			);
 			path = TestApp;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				52A8160E2B7C2323008A7590 /* ContentView.swift in Sources */,
 				952AB0332B7CA578000E90BB /* Food.swift in Sources */,
 				52A816392B7C2558008A7590 /* Home.swift in Sources */,
+				41B003732B82BFD900DD5CF7 /* CoreDataManager.swift in Sources */,
 				52A8160C2B7C2323008A7590 /* TestAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

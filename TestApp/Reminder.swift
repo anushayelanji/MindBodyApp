@@ -36,13 +36,17 @@ struct ReminderView: View {
         VStack {
 //            TextField("Reminder Title", text: $reminderTitle)
 //                .textFieldStyle(RoundedBorderTextFieldStyle())
-//                .padding()
+//                  .padding()
+            Text("Mood")
+                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                .bold()
+                .padding()
             
-            Picker("Moofsd", selection: $selectedTime) {
+            Picker("Time", selection: $selectedTime) {
                 //Text("None").tag(MoodType?.none)
                 ForEach(MoodTime.allCases) { mood in
                     Text(mood.rawValue).tag(mood as MoodTime?)
-                }
+                }.font(.title)
             }.pickerStyle(SegmentedPickerStyle())
                 .padding()
 
@@ -51,33 +55,38 @@ struct ReminderView: View {
                 ForEach(MoodType.allCases) { mood in
                     Text(mood.rawValue).tag(mood as MoodType?)
                 }
+            
             }
+            
             .pickerStyle(SegmentedPickerStyle())
-            .padding()
-
-            Button("Add Reminder") {
-                let newReminder = Reminder(date: date, time: selectedTime, mood: selectedMood)
-                reminders.append(newReminder)
-                //reminderTitle = "" // Reset title for next input
-                selectedTime = nil // Reset selected time
-                selectedMood = nil // Reset selected mood
+            .padding(20)
+            VStack{
+                Button("Add Mood") {
+                    let newReminder = Reminder(date: date, time: selectedTime, mood: selectedMood)
+                    reminders.append(newReminder)
+                    //reminderTitle = "" // Reset title for next input
+                    selectedTime = nil // Reset selected time
+                    selectedMood = nil // Reset selected mood
+                    
+                }
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.cyan) 
+                .cornerRadius(8)
             }
-            .padding()
-            .foregroundColor(.white)
-            .background(Color.blue)
-            .cornerRadius(8)
-
-            List(reminders.filter { Calendar.current.isDate($0.date, inSameDayAs: date) }) { reminder in
+            .padding(30)
+            List(reminders.filter { Calendar.current.isDate($0.date, inSameDayAs: date) }) { 
+                reminder in
                 HStack {
                     if let mood = reminder.time {
-                        Text(mood.rawValue)
+                        Text(mood.rawValue).bold()
                             
                     }
                     Spacer()
                     if let mood = reminder.mood {
                         Text(mood.rawValue)
-                            .foregroundColor(.gray)
-                            .italic()
+                            //.foregroundColor(.gray)
+                            //.italic()
                     }
 //                    if let mood = reminder.mood {
 //                        Text(mood.rawValue)
@@ -88,9 +97,10 @@ struct ReminderView: View {
             }
         }
         .padding()
-        .navigationTitle("Add Reminder")
+        //.navigationTitle("Add Mojod")
         .padding()
     }
+        
 }
 
 

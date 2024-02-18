@@ -16,6 +16,7 @@
 		52A8162A2B7C2325008A7590 /* TestAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A816292B7C2325008A7590 /* TestAppUITestsLaunchTests.swift */; };
 		52A816372B7C247E008A7590 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A816362B7C247E008A7590 /* Reminder.swift */; };
 		52A816392B7C2558008A7590 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A816382B7C2558008A7590 /* Home.swift */; };
+		952AB0332B7CA578000E90BB /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952AB0322B7CA578000E90BB /* Food.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		52A816292B7C2325008A7590 /* TestAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		52A816362B7C247E008A7590 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		52A816382B7C2558008A7590 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		952AB0322B7CA578000E90BB /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				52A8160D2B7C2323008A7590 /* ContentView.swift */,
 				52A816382B7C2558008A7590 /* Home.swift */,
 				52A816362B7C247E008A7590 /* Reminder.swift */,
+				952AB0322B7CA578000E90BB /* Food.swift */,
 				52A8160F2B7C2324008A7590 /* Assets.xcassets */,
 				52A816112B7C2324008A7590 /* TestApp.entitlements */,
 				52A816122B7C2324008A7590 /* Preview Content */,
@@ -267,6 +270,7 @@
 			files = (
 				52A816372B7C247E008A7590 /* Reminder.swift in Sources */,
 				52A8160E2B7C2323008A7590 /* ContentView.swift in Sources */,
+				952AB0332B7CA578000E90BB /* Food.swift in Sources */,
 				52A816392B7C2558008A7590 /* Home.swift in Sources */,
 				52A8160C2B7C2323008A7590 /* TestAppApp.swift in Sources */,
 			);
@@ -428,7 +432,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 62KX7YW4VU;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -467,7 +471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 62KX7YW4VU;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

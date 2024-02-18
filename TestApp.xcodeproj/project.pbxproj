@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41B003712B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41B0036F2B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodeld */; };
 		52A8160C2B7C2323008A7590 /* TestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A8160B2B7C2323008A7590 /* TestAppApp.swift */; };
 		52A8160E2B7C2323008A7590 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A8160D2B7C2323008A7590 /* ContentView.swift */; };
 		52A816102B7C2324008A7590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52A8160F2B7C2324008A7590 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		41B003702B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MindBodyModel.xcdatamodel; sourceTree = "<group>"; };
 		52A816082B7C2323008A7590 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A8160B2B7C2323008A7590 /* TestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppApp.swift; sourceTree = "<group>"; };
 		52A8160D2B7C2323008A7590 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				52A8160F2B7C2324008A7590 /* Assets.xcassets */,
 				52A816112B7C2324008A7590 /* TestApp.entitlements */,
 				52A816122B7C2324008A7590 /* Preview Content */,
+				41B0036F2B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodeld */,
 			);
 			path = TestApp;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52A816372B7C247E008A7590 /* Reminder.swift in Sources */,
+				41B003712B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodeld in Sources */,
 				52A8160E2B7C2323008A7590 /* ContentView.swift in Sources */,
 				952AB0332B7CA578000E90BB /* Food.swift in Sources */,
 				52A816392B7C2558008A7590 /* Home.swift in Sources */,
@@ -447,7 +451,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
@@ -486,7 +490,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
@@ -631,6 +635,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		41B0036F2B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				41B003702B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodel */,
+			);
+			currentVersion = 41B003702B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodel */;
+			path = MindBodyModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 52A816002B7C2322008A7590 /* Project object */;
 }

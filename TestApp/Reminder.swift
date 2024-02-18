@@ -64,8 +64,9 @@ struct ReminderView: View {
             }
             .padding()
             .foregroundColor(.white)
-            .background(Color.blue)
+            .background(selectedTime == nil || selectedMood == nil ? Color.gray : Color.blue)
             .cornerRadius(8)
+            .disabled(selectedTime == nil || selectedMood == nil)
 
             List(reminders.filter { Calendar.current.isDate($0.date, inSameDayAs: date) }) { reminder in
                 HStack {

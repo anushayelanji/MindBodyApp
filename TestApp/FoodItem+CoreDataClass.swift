@@ -27,7 +27,8 @@ public class User: NSManagedObject, Identifiable {
         return NSFetchRequest<User>(entityName: "User")
     }
 
-    @NSManaged public var morning: String?
+    @NSManaged public var morningMood: String?
     @NSManaged public var breakfast: String?
     @NSManaged public var name: String
+    @NSManaged public var date: Date
 }

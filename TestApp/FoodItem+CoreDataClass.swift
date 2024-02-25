@@ -19,3 +19,15 @@ public class FoodItem: NSManagedObject, Identifiable {
     @NSManaged public var calories: Int16
     @NSManaged public var name: String?
 }
+
+@objc(User)
+public class User: NSManagedObject, Identifiable {
+
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<User> {
+        return NSFetchRequest<User>(entityName: "User")
+    }
+
+    @NSManaged public var morning: String?
+    @NSManaged public var breakfast: String?
+    @NSManaged public var name: String
+}

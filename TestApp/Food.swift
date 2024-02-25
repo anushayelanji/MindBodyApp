@@ -32,9 +32,16 @@ struct FoodView: View {
     @State private var foodLunch = ""
     @State private var foodDinner = ""
     @State private var foodDessert = ""
+    @State private var food_cal_brek = ""
+    @State private var food_cal_lun = ""
+    @State private var food_cal_din = ""
+    @State private var food_cal_des = ""
     //@State private var selectedMood: MoodTypes? = nil
     //@State private var selectedTime: MoodTimes? = nil
     @Binding var foods: [Food] // Assume this is passed from the ContentView
+    
+    
+    @State private var foodItems: [FoodItem] = []
 
     var body: some View {
         VStack {
@@ -46,22 +53,42 @@ struct FoodView: View {
                 .bold()
                 .padding()
             Text("")
-            Text("Breakfast")
-            TextField("", text: $foodBreakfast)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                  //.padding()
-            Text("Lunch")
-            TextField("", text: $foodLunch)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                  //.padding()
-            Text("Dinner")
-            TextField("", text: $foodDinner)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                  //.padding()
-            Text("Dessert")
-            TextField("", text: $foodDessert)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                  //.padding()
+            HStack{
+                Text("Breakfast")
+                TextField("", text: $foodBreakfast)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                //.padding()
+                Text("Calories")
+                TextField("", text: $food_cal_brek)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }
+            HStack{
+                Text("Lunch")
+                TextField("", text: $foodLunch)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                //.padding()
+                Text("Calories")
+                TextField("", text: $food_cal_lun)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }
+            HStack{
+                Text("Dinner")
+                TextField("", text: $foodDinner)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                //.padding()
+                Text("Calories")
+                TextField("", text: $food_cal_din)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }
+            HStack{
+                Text("Snack")
+                TextField("", text: $foodDessert)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                //.padding()
+                Text("Calories")
+                TextField("", text: $food_cal_des)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }
             Text("")
             //Spacer()
                  // .lineSpacing(10.0)
@@ -91,7 +118,7 @@ struct FoodView: View {
             
             VStack{
                 Button("Add Food") {
-                    let newFood = Food(date: date, breakfast: foodBreakfast, lunch: foodLunch, dinner: foodDinner, dessert: foodDessert)
+                    let newFood = Food(date: date, breakfast: foodBreakfast, lunch: foodLunch, dinner: foodDinner, dessert: foodDessert, cal_brek: food_cal_brek, cal_lun: food_cal_lun, cal_din: food_cal_din, cal_des: food_cal_des)
                     foods.append(newFood)
                     //reminderTitle = "" // Reset title for next input
                     //selectedTime = nil // Reset selected time
@@ -100,6 +127,19 @@ struct FoodView: View {
                     foodLunch = ""
                     foodDinner = ""
                     foodDessert = ""
+                    food_cal_brek = ""
+                    food_cal_lun = ""
+                    food_cal_din = ""
+                    food_cal_des = ""
+                    
+                    
+                    let foodItemsToCache = [("Donut", 200)]
+                    CoreDataManager.shared.cacheFoodItems(foodItems: foodItemsToCache)
+                    
+                    self.foodItems = CoreDataManager.shared.fetchFoodItems()
+                    self.printFoodItems()
+                    
+                    
                 }
                 .padding()
                 .foregroundColor(.white)
@@ -121,6 +161,8 @@ struct FoodView: View {
                             Text("Breakfast").bold()
                             Spacer()
                             Text(food.breakfast)
+                            Text(food.cal_brek)
+                                .italic()
                         }
                     }
                     HStack{
@@ -128,6 +170,8 @@ struct FoodView: View {
                             Text("Lunch").bold()
                             Spacer()
                             Text(food.lunch)
+                            Text(food.cal_lun)
+                                .italic()
                         }
                     }
                     HStack{
@@ -135,13 +179,17 @@ struct FoodView: View {
                             Text("Dinner").bold()
                             Spacer()
                             Text(food.dinner)
+                            Text(food.cal_din)
+                                .italic()
                         }
                     }
                     HStack{
                         if food.dessert != ""{
-                            Text("Dessert").bold()
+                            Text("Snack").bold()
                             Spacer()
                             Text(food.dessert)
+                            Text(food.cal_des)
+                                .italic()
                         }
                     }
 //                    if let mood = food.lunch {
@@ -162,6 +210,15 @@ struct FoodView: View {
         //.navigationTitle("Add Mojod")
         .padding()
     }
+    
+    func printFoodItems() {
+        for foodItem in foodItems {
+            if let foodItem = foodItem as? FoodItem {
+                print(foodItem.name ?? "")
+                print(foodItem.calories ?? 10)
+            }
+        }
+    }
         
 }
 
@@ -176,6 +233,10 @@ struct Food: Identifiable, Hashable {
     var lunch: String
     var dinner: String
     var dessert: String
+    var cal_brek: String
+    var cal_lun: String
+    var cal_din: String
+    var cal_des: String
 }
 
 enum MoodTypes: String, CaseIterable, Identifiable {

@@ -31,8 +31,8 @@ struct ReminderView: View {
     @State private var selectedMood: MoodType? = nil
     @State private var selectedTime: MoodTime? = nil
     @Binding var reminders: [Reminder] // Assume this is passed from the ContentView
-    
-    @State private var foodItems: [FoodItem] = []
+//    
+//    @State private var foodItems: [FoodItem] = []
 
     var body: some View {
         VStack {
@@ -70,11 +70,11 @@ struct ReminderView: View {
                     selectedTime = nil // Reset selected time
                     selectedMood = nil // Reset selected mood
                     
-                    let foodItemsToCache = [("Donut", 200)]
-                    CoreDataManager.shared.cacheFoodItems(foodItems: foodItemsToCache)
-                    
-                    self.foodItems = CoreDataManager.shared.fetchFoodItems()
-                    self.printFoodItems()
+//                    let foodItemsToCache = [("Donut", 200)]
+//                    CoreDataManager.shared.cacheFoodItems(foodItems: foodItemsToCache)
+//                    
+//                    self.foodItems = CoreDataManager.shared.fetchFoodItems()
+//                    self.printFoodItems()
                 }
                 .padding()
                 .foregroundColor(.white)
@@ -109,14 +109,14 @@ struct ReminderView: View {
     }
         
     
-    func printFoodItems() {
-        for foodItem in foodItems {
-            if let foodItem = foodItem as? FoodItem {
-                print(foodItem.name ?? "")
-                print(foodItem.calories ?? 10)
-            }
-        }
-    }
+//    func printFoodItems() {
+//        for foodItem in foodItems {
+//            if let foodItem = foodItem as? FoodItem {
+//                print(foodItem.name ?? "")
+//                print(foodItem.calories ?? 10)
+//            }
+//        }
+//    }
 }
 
 

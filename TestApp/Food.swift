@@ -123,29 +123,24 @@ struct FoodView: View {
                     //reminderTitle = "" // Reset title for next input
                     //selectedTime = nil // Reset selected time
                     //selectedMood = nil // Reset selected mood
-//                    foodBreakfast = ""
-//                    foodLunch = ""
-//                    foodDinner = ""
-//                    foodDessert = ""
-//                    food_cal_brek = ""
-//                    food_cal_lun = ""
-//                    food_cal_din = ""
-//                    food_cal_des = ""
-                                        
-//                    let foodItemsToCache = [("Donut", 200)]
-//                    CoreDataManager.shared.cacheFoodItems(foodItems: foodItemsToCache)
                     
-                    let userModel = UserModel(name: "Anusha", morningMood: "Happy", breakfast: foodBreakfast, date: date)
-                    CoreDataManager.shared.cacheUserEntry(userEntry: userModel)
                     
-                    let userEntries = CoreDataManager.shared.fetchUserEntries()
-                    for entry in userEntries {
-                        print(entry)
-                    }
+                    let userModel = UserModel(name: "Anusha", morningMood: "Happy", breakfast: foodBreakfast.isEmpty ? nil : foodBreakfast, date: date)
+                    CoreDataManager.shared.updateUserEntry(name: userModel.name, date: userModel.date, userModel: userModel)
                     
-                    self.foodItems = CoreDataManager.shared.fetchFoodItems()
-                    self.printFoodItems()
+                    foodBreakfast = ""
+                    foodLunch = ""
+                    foodDinner = ""
+                    foodDessert = ""
+                    food_cal_brek = ""
+                    food_cal_lun = ""
+                    food_cal_din = ""
+                    food_cal_des = ""
                     
+//                    let userEntries = CoreDataManager.shared.fetchUserEntries()
+//                    for entry in userEntries {
+//                        print(entry)
+//                    }
                     
                 }
                 .padding()

@@ -60,15 +60,30 @@ class CoreDataManager {
         }
     }
     
-    func cacheUserEntry(userEntry: UserModel) {
+//    func cacheUserEntry(userEntry: UserModel) {
+//        let context = persistentContainer.viewContext
+//        
+//        let entity = NSEntityDescription.entity(forEntityName: "User", in: context)!
+//        let userObject = NSManagedObject(entity: entity, insertInto: context)
+//        userObject.setValue(userEntry.name, forKey: "name")
+//        userObject.setValue(userEntry.breakfast, forKey: "breakfast")
+//        userObject.setValue(userEntry.morningMood, forKey: "morningMood")
+//        userObject.setValue(userEntry.date, forKey: "date")
+//        
+//        saveContext()
+//    }
+    
+    func updateUserEntry(name: String, date: Date, userModel: UserModel) {
         let context = persistentContainer.viewContext
         
         let entity = NSEntityDescription.entity(forEntityName: "User", in: context)!
         let userObject = NSManagedObject(entity: entity, insertInto: context)
-        userObject.setValue(userEntry.name, forKey: "name")
-        userObject.setValue(userEntry.breakfast, forKey: "breakfast")
-        userObject.setValue(userEntry.morningMood, forKey: "morningMood")
-        userObject.setValue(userEntry.date, forKey: "date")
+        userObject.setValue(userModel.name, forKey: "name")
+        if let breakfast = userModel.breakfast {
+            userObject.setValue(breakfast, forKey: "breakfast")
+        }
+        userObject.setValue(userModel.morningMood, forKey: "morningMood")
+        userObject.setValue(userModel.date, forKey: "date")
         
         saveContext()
     }

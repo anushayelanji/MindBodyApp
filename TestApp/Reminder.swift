@@ -66,6 +66,15 @@ struct ReminderView: View {
                 Button("Add Mood") {
                     let newReminder = Reminder(date: date, time: selectedTime, mood: selectedMood)
                     reminders.append(newReminder)
+                    
+                    var userModel: UserModel
+                    if selectedTime == .morning {
+                        userModel = UserModel(name: "Anusha", morningMood: selectedMood?.rawValue, breakfast: nil, date: date)
+                    } else {
+                        userModel = UserModel(name: "Anusha", morningMood: selectedMood?.rawValue, breakfast: nil, date: date)
+                    }
+                    
+                    CoreDataManager.shared.updateUserEntry(name: userModel.name, date: userModel.date, userModel: userModel)
                     //reminderTitle = "" // Reset title for next input
                     selectedTime = nil // Reset selected time
                     selectedMood = nil // Reset selected mood

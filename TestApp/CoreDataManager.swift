@@ -75,17 +75,48 @@ class CoreDataManager {
     
     func updateUserEntry(name: String, date: Date, userModel: UserModel) {
         let context = persistentContainer.viewContext
-        
-        let entity = NSEntityDescription.entity(forEntityName: "User", in: context)!
-        let userObject = NSManagedObject(entity: entity, insertInto: context)
-        userObject.setValue(userModel.name, forKey: "name")
-        if let breakfast = userModel.breakfast {
-            userObject.setValue(breakfast, forKey: "breakfast")
+
+        // Extract the date components from the given date
+        let calendar = Calendar.current
+        let dateComponents = calendar.dateComponents([.year, .month, .day], from: date)
+
+        // Construct the start and end dates for the given date
+        guard let startDate = calendar.date(from: dateComponents),
+              let endDate = calendar.date(byAdding: .day, value: 1, to: startDate) else {
+            return
         }
-        userObject.setValue(userModel.morningMood, forKey: "morningMood")
-        userObject.setValue(userModel.date, forKey: "date")
+
+        // Check if an entry with the given name and date exists
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "name == %@ AND date >= %@ AND date < %@", name, startDate as NSDate, endDate as NSDate)
         
-        saveContext()
+        do {
+            let result = try context.fetch(fetchRequest)
+            if let existingUser = result.first as? NSManagedObject {
+                // Entry exists, update it
+                existingUser.setValue(userModel.name, forKey: "name")
+                if let breakfast = userModel.breakfast {
+                    existingUser.setValue(breakfast, forKey: "breakfast")
+                }
+                existingUser.setValue(userModel.morningMood, forKey: "morningMood")
+                existingUser.setValue(userModel.date, forKey: "date")
+            } else {
+                // Entry does not exist, create a new one
+                let entity = NSEntityDescription.entity(forEntityName: "User", in: context)!
+                let newUser = NSManagedObject(entity: entity, insertInto: context)
+                newUser.setValue(userModel.name, forKey: "name")
+                if let breakfast = userModel.breakfast {
+                    newUser.setValue(breakfast, forKey: "breakfast")
+                }
+                newUser.setValue(userModel.morningMood, forKey: "morningMood")
+                newUser.setValue(userModel.date, forKey: "date")
+            }
+
+            // Save the context
+            saveContext()
+        } catch {
+            print("Failed to update or create user entry: \(error)")
+        }
     }
     
     func fetchUserEntries() -> [User] {

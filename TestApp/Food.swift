@@ -137,11 +137,11 @@ struct FoodView: View {
                     food_cal_din = ""
                     food_cal_des = ""
                     
-//                    let userEntries = CoreDataManager.shared.fetchUserEntries()
-//                    for entry in userEntries {
-//                        print(entry)
-//                    }
-                    
+                    let userEntries = CoreDataManager.shared.fetchUserEntries()
+                    for entry in userEntries {
+                        print(entry.breakfast ?? "Empty breakfast")
+                        print(entry.morningMood ?? "Empty mood")
+                    }                    
                 }
                 .padding()
                 .foregroundColor(.white)
@@ -257,3 +257,9 @@ enum MoodTypes: String, CaseIterable, Identifiable {
 //   
 //    var id: String { self.rawValue }
 //}
+
+
+/*
+1. Fault check
+2. Update the existing entry
+*/

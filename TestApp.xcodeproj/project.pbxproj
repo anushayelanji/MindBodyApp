@@ -21,6 +21,8 @@
 		52A816372B7C247E008A7590 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A816362B7C247E008A7590 /* Reminder.swift */; };
 		52A816392B7C2558008A7590 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A816382B7C2558008A7590 /* Home.swift */; };
 		952AB0332B7CA578000E90BB /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952AB0322B7CA578000E90BB /* Food.swift */; };
+		95559C152B8D2A0200494243 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95559C142B8D2A0200494243 /* Exercise.swift */; };
+		95559C172B8D57BA00494243 /* UserEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95559C162B8D57BA00494243 /* UserEntries.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		52A816362B7C247E008A7590 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		52A816382B7C2558008A7590 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		952AB0322B7CA578000E90BB /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		95559C142B8D2A0200494243 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		95559C162B8D57BA00494243 /* UserEntries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntries.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +116,9 @@
 			children = (
 				52A8160B2B7C2323008A7590 /* TestAppApp.swift */,
 				52A8160D2B7C2323008A7590 /* ContentView.swift */,
+				95559C142B8D2A0200494243 /* Exercise.swift */,
 				52A816382B7C2558008A7590 /* Home.swift */,
+				95559C162B8D57BA00494243 /* UserEntries.swift */,
 				52A816362B7C247E008A7590 /* Reminder.swift */,
 				952AB0322B7CA578000E90BB /* Food.swift */,
 				52A8160F2B7C2324008A7590 /* Assets.xcassets */,
@@ -285,10 +291,12 @@
 				41B003762B82C32400DD5CF7 /* FoodItem+CoreDataClass.swift in Sources */,
 				52A8160E2B7C2323008A7590 /* ContentView.swift in Sources */,
 				952AB0332B7CA578000E90BB /* Food.swift in Sources */,
+				95559C152B8D2A0200494243 /* Exercise.swift in Sources */,
 				41B003792B8BFB2F00DD5CF7 /* User.swift in Sources */,
 				52A816392B7C2558008A7590 /* Home.swift in Sources */,
 				41B003732B82BFD900DD5CF7 /* CoreDataManager.swift in Sources */,
 				52A8160C2B7C2323008A7590 /* TestAppApp.swift in Sources */,
+				95559C172B8D57BA00494243 /* UserEntries.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,6 +17,9 @@ struct UserModel {
     var lunch: String?
     var dinner: String?
     var dessert: String?
-    //var cal_brek: String?
+    var cal_brek: String?
+    var cal_lun: String?
+    var cal_din: String?
+    var cal_des: String?
  
 }

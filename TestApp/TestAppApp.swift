@@ -18,4 +18,38 @@ import SwiftUI
         }
     }
     
-
+//navigation panel
+struct TabbedView: View {
+    var body: some View {
+        TabView {
+            NavigationView {
+              HomeView()
+            }
+            .tabItem {
+                Label("Home", systemImage: "house")
+            }
+            NavigationView {
+                
+                VStack {
+                            ContentView()
+                            Spacer() // This pushes the calendar to the top
+                       
+                        }
+          
+                //ContentView()
+            }
+            .tabItem {
+                Label("Calendar", systemImage: "calendar")
+            }
+            NavigationView {
+              Exercise()
+            }
+            .tabItem {
+                Label("Exercise", systemImage: "dumbbell")
+            }
+            
+        
+            
+        }
+    }
+}

@@ -27,42 +27,24 @@ import SwiftUI
     
 
 
-
-
-struct TabbedView: View {
-    var body: some View {
-        TabView {
-            NavigationView {
-              HomeView()
-            }
-            .tabItem {
-                Label("Home", systemImage: "house")
-            }
-            NavigationView {
-                
-                VStack {
-                            ContentView()
-                            Spacer() // This pushes the calendar to the top
-                       
-                        }
-          
-                //ContentView()
-            }
-            .tabItem {
-                Label("Calendar", systemImage: "calendar")
-            }
-            
-            
-            
-            
-            
-        }
-    }
-}
-
 struct HomeView: View {
     var body: some View {
-        Text("Home")
-            .navigationTitle("Home")
+        //@StateObject var homeViewModel = UserEntries()
+//        
+       Text("Home for reccs").navigationTitle("Home")
+                
+                    
+//                    let userEntries = CoreDataManager.shared.fetchUserEntries()
+//                                for entry in userEntries {
+//                
+//                                    print(entry)
+//                                    Text("hi")
+//                                }
+                
+                
+        
+                }
+        
+        
     }
-}
+

@@ -36,5 +36,8 @@ public class User: NSManagedObject, Identifiable {
     @NSManaged public var dessert: String?
     @NSManaged public var name: String
     @NSManaged public var date: Date
-    //@NSManaged public var cal_brek: String?
+    @NSManaged public var cal_brek: String?
+    @NSManaged public var cal_lun: String?
+    @NSManaged public var cal_din: String?
+    @NSManaged public var cal_des: String?
 }

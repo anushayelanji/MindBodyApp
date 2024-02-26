@@ -63,6 +63,7 @@ struct ReminderView: View {
             .pickerStyle(SegmentedPickerStyle())
             .padding(20)
             VStack{
+                
                 Button("Add Mood") {
                     let newReminder = Reminder(date: date, time: selectedTime, mood: selectedMood)
                     reminders.append(newReminder)
@@ -77,6 +78,16 @@ struct ReminderView: View {
                     }
                     
                     CoreDataManager.shared.updateUserEntry(name: userModel.name, date: userModel.date, userModel: userModel)
+                    
+                    let userEntries = CoreDataManager.shared.fetchUserEntries()
+                    for entry in userEntries {
+//                        print(entry.breakfast ?? "Empty breakfast")
+//                        print(entry.morningMood ?? "Empty mood")
+                    
+                        print(entry)
+                    }
+                    
+                    
                     //reminderTitle = "" // Reset title for next input
                     selectedTime = nil // Reset selected time
                     selectedMood = nil // Reset selected mood
@@ -87,10 +98,16 @@ struct ReminderView: View {
 //                    self.foodItems = CoreDataManager.shared.fetchFoodItems()
 //                    self.printFoodItems()
                 }
+//                .padding()
+//                .foregroundColor(.white)
+//                .background(Color.cyan) 
+//                .cornerRadius(8)
+                
                 .padding()
                 .foregroundColor(.white)
-                .background(Color.cyan) 
-                .cornerRadius(8)
+                .background(selectedTime == nil || selectedMood == nil ? Color.gray : Color.cyan)
+                 .cornerRadius(8)
+                 .disabled(selectedTime == nil || selectedMood == nil)
             }
             .padding(30)
             List(reminders.filter { Calendar.current.isDate($0.date, inSameDayAs: date) }) { 

@@ -7,6 +7,10 @@
     <entity name="Mood" representedClassName="Mood" syncable="YES" codeGenerationType="class"/>
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="breakfast" optional="YES" attributeType="String"/>
+        <attribute name="cal_brek" optional="YES" attributeType="String"/>
+        <attribute name="cal_des" optional="YES" attributeType="String"/>
+        <attribute name="cal_din" optional="YES" attributeType="String"/>
+        <attribute name="cal_lun" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="dessert" optional="YES" attributeType="String"/>
         <attribute name="dinner" optional="YES" attributeType="String"/>

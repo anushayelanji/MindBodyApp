@@ -121,9 +121,18 @@ class CoreDataManager {
                 if let nightMood = userModel.nightMood{
                     existingUser.setValue(nightMood, forKey: "nightMood")
                 }
-//                if let cal_brek = userModel.cal_brek{
-//                    existingUser.setValue(cal_brek, forKey: "cal_brek")
-//                }
+                if let cal_brek = userModel.cal_brek{
+                    existingUser.setValue(cal_brek, forKey: "cal_brek")
+                }
+                if let cal_lun = userModel.cal_lun{
+                    existingUser.setValue(cal_lun, forKey: "cal_lun")
+                }
+                if let cal_din = userModel.cal_din{
+                    existingUser.setValue(cal_din, forKey: "cal_din")
+                }
+                if let cal_des = userModel.cal_des {
+                    existingUser.setValue(cal_des , forKey: "cal_des")
+                }
                 //existingUser.setValue(userModel.morningMood, forKey: "morningMood")
                 //existingUser.setValue(userModel.middayMood, forKey: "middayMood")
                 //existingUser.setValue(userModel.nightMood, forKey: "nightMood")
@@ -156,9 +165,18 @@ class CoreDataManager {
                 if let nightMood = userModel.nightMood{
                     newUser.setValue(nightMood, forKey: "nightMood")
                 }
-//                if let cal_brek = userModel.cal_brek{
-//                    newUser.setValue(cal_brek, forKey: "cal_brek")
-//                }
+                if let cal_brek = userModel.cal_brek{
+                    newUser.setValue(cal_brek, forKey: "cal_brek")
+                }
+                if let cal_lun = userModel.cal_lun{
+                    newUser.setValue(cal_lun, forKey: "cal_lun")
+                }
+                if let cal_din = userModel.cal_din{
+                    newUser.setValue(cal_din, forKey: "cal_din")
+                }
+                if let cal_des = userModel.cal_des {
+                    newUser.setValue(cal_des , forKey: "cal_des")
+                }
                 //newUser.setValue(userModel.morningMood, forKey: "morningMood")
                 //newUser.setValue(userModel.middayMood, forKey: "middayMood")
                 //newUser.setValue(userModel.nightMood, forKey: "nightMood")

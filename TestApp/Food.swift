@@ -125,7 +125,7 @@ struct FoodView: View {
                     //selectedMood = nil // Reset selected mood
                     
                     
-                    let userModel = UserModel(name: "Anusha", date: date, breakfast: foodBreakfast.isEmpty ? nil : foodBreakfast, lunch: foodLunch.isEmpty ? nil : foodLunch, dinner: foodDinner.isEmpty ? nil : foodDinner, dessert: foodDessert.isEmpty ? nil : foodDessert)
+                    let userModel = UserModel(name: "Anusha", date: date, breakfast: foodBreakfast.isEmpty ? nil : foodBreakfast, lunch: foodLunch.isEmpty ? nil : foodLunch, dinner: foodDinner.isEmpty ? nil : foodDinner, dessert: foodDessert.isEmpty ? nil : foodDessert, cal_brek: food_cal_brek.isEmpty ? nil : food_cal_brek, cal_lun: food_cal_lun.isEmpty ? nil : food_cal_lun, cal_din: food_cal_din.isEmpty ? nil : food_cal_din, cal_des: food_cal_des.isEmpty ? nil : food_cal_des)
                     CoreDataManager.shared.updateUserEntry(name: userModel.name, date: userModel.date, userModel: userModel)
                     
                     foodBreakfast = ""
@@ -139,23 +139,60 @@ struct FoodView: View {
                     
                     let userEntries = CoreDataManager.shared.fetchUserEntries()
                     for entry in userEntries {
-                        print(entry.breakfast ?? "Empty breakfast")
-                        print(entry.morningMood ?? "Empty mood")
-                        //let ok = entry.cal_brek
-//                        let baby = Int(ok)
-                      
+                        print("Name: " + entry.name)
+                        print("Date: \(entry.date)")
+                        print("Breakfast: " + (entry.breakfast ?? "Empty breakfast") + " Calories: " + (entry.cal_brek ?? "Empty breakfast cals"))
+                        print("Lunch: " + (entry.lunch ?? "Empty lunch") + " Calories: " + (entry.cal_lun ?? "Empty lunch cals"))
+                        print("Dessert: " + (entry.dessert ?? "Empty dessert") + " Calories: " + (entry.cal_des ?? "Empty dessert cals"))
+                        //print(entry.cal_des ?? "Empty dessert cals")
+                        print("Morning Mood: " + (entry.morningMood ?? "Empty mood"))
+                        print("Midday Mood: " + (entry.middayMood ?? "Empty mood"))
+                        print("Night Mood: " + (entry.nightMood ?? "Empty mood"))
+                        print("")
+                        
+                  
+                        
+                        let stringNumber1: String? = entry.cal_brek
+                        guard let unwrappedString = stringNumber1, let intBrek = Int(unwrappedString) else {
+                            //print("The string either is nil or cannot be converted to an Int.")
+                            return
+                        }
+                        
+                        let stringNumber2: String? = entry.cal_lun
+                        guard let unwrappedString = stringNumber2, let intLun = Int(unwrappedString) else {
+                            //print("The string either is nil or cannot be converted to an Int.")
+                            return
+                        }
+                        
+                        let stringNumber3: String? = entry.cal_din
+                        guard let unwrappedString = stringNumber3, let intDin = Int(unwrappedString) else {
+                            //print("The string either is nil or cannot be converted to an Int.")
+                            return
+                        }
+                        
+                        let stringNumber4: String? = entry.cal_des
+                        guard let unwrappedString = stringNumber4, let intDes = Int(unwrappedString) else {
+                            //print("The string either is nil or cannot be converted to an Int.")
+                            return
+                        }
+//                        print("Converted Int value:", intValue)
+                        
 
-//                        if (entry.cal_brek > 100){
-//                            print(entry.cal_brek)
-//                        }
-                        //print(entry.cal_brek ?? "Empty mood")
-                        print(entry)
+                       
+                    
+                        //print(entry)
                     }
                 }
+//                .padding()
+//                .foregroundColor(.white)
+//                .background(Color.cyan)
+//                .cornerRadius(8)
+                
                 .padding()
                 .foregroundColor(.white)
-                .background(Color.cyan)
+                .background(foodBreakfast == "" && foodLunch == "" && foodDinner == "" && foodDessert == "" ? Color.gray : Color.cyan)
                 .cornerRadius(8)
+                .disabled(foodBreakfast == "" && foodLunch == "" && foodDinner == "" && foodDessert == "" )
             }
             .padding()
             List(foods.filter { Calendar.current.isDate($0.date, inSameDayAs: date) }) { food in
@@ -268,7 +305,4 @@ struct Food: Identifiable, Hashable {
 //}
 
 
-/*
-1. Fault check
-2. Update the existing entry
-*/
+

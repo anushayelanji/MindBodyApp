@@ -123,32 +123,52 @@ struct ContentView: View {
                                     Text("Breakfast")
                                         .font(.caption)
                                         .bold()
-                                    Text(food.breakfast)
-                                        .font(.caption2)
+                                    HStack{
+                                        Text(food.breakfast)
+                                            .font(.caption2)
+                                        Spacer()
+                                        Text(food.cal_brek)
+                                            .font(.caption2)
+                                    }
                                 }
                                 
                                 if food.lunch != ""{
                                     Text("Lunch")
                                         .font(.caption)
                                         .bold()
-                                    Text(food.lunch)
-                                        .font(.caption2)
+                                    HStack{
+                                        Text(food.lunch)
+                                            .font(.caption2)
+                                        Spacer()
+                                        Text(food.cal_lun)
+                                            .font(.caption2)
+                                    }
                                 }
                                 
                                 if food.dinner != ""{
                                     Text("Dinner")
                                         .font(.caption)
                                         .bold()
-                                    Text(food.dinner)
-                                        .font(.caption2)
+                                    HStack{
+                                        Text(food.dinner)
+                                            .font(.caption2)
+                                        Spacer()
+                                        Text(food.cal_din)
+                                            .font(.caption2)
+                                    }
                                 }
                                 
                                 if food.dessert != ""{
                                     Text("Dessert")
                                         .font(.caption)
                                         .bold()
-                                    Text(food.dessert)
-                                        .font(.caption2)
+                                    HStack{
+                                        Text(food.dessert)
+                                            .font(.caption2)
+                                        Spacer()
+                                        Text(food.cal_des)
+                                            .font(.caption2)
+                                    }
                                 }
                                 
                             }

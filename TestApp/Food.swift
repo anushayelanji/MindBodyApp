@@ -41,7 +41,7 @@ struct FoodView: View {
     @Binding var foods: [Food] // Assume this is passed from the ContentView
     
     
-    @State private var foodItems: [FoodItem] = []
+//    @State private var foodItems: [FoodItem] = []
 
     var body: some View {
         VStack {
@@ -125,7 +125,7 @@ struct FoodView: View {
                     //selectedMood = nil // Reset selected mood
                     
                     
-                    let userModel = UserModel(name: "Anusha", morningMood: "Happy", breakfast: foodBreakfast.isEmpty ? nil : foodBreakfast, date: date)
+                    let userModel = UserModel(name: "Anusha", date: date, breakfast: foodBreakfast.isEmpty ? nil : foodBreakfast, lunch: foodLunch.isEmpty ? nil : foodLunch, dinner: foodDinner.isEmpty ? nil : foodDinner, dessert: foodDessert.isEmpty ? nil : foodDessert)
                     CoreDataManager.shared.updateUserEntry(name: userModel.name, date: userModel.date, userModel: userModel)
                     
                     foodBreakfast = ""
@@ -141,7 +141,16 @@ struct FoodView: View {
                     for entry in userEntries {
                         print(entry.breakfast ?? "Empty breakfast")
                         print(entry.morningMood ?? "Empty mood")
-                    }                    
+                        //let ok = entry.cal_brek
+//                        let baby = Int(ok)
+                      
+
+//                        if (entry.cal_brek > 100){
+//                            print(entry.cal_brek)
+//                        }
+                        //print(entry.cal_brek ?? "Empty mood")
+                        print(entry)
+                    }
                 }
                 .padding()
                 .foregroundColor(.white)
@@ -163,7 +172,7 @@ struct FoodView: View {
                             Text("Breakfast").bold()
                             Spacer()
                             Text(food.breakfast)
-                            Text(food.cal_brek)
+                            Text("\(food.cal_brek)")
                                 .italic()
                         }
                     }
@@ -213,14 +222,14 @@ struct FoodView: View {
         .padding()
     }
     
-    func printFoodItems() {
-        for foodItem in foodItems {
-            if let foodItem = foodItem as? FoodItem {
-                print(foodItem.name ?? "")
-                print(foodItem.calories ?? 10)
-            }
-        }
-    }
+//    func printFoodItems() {
+//        for foodItem in foodItems {
+//            if let foodItem = foodItem as? FoodItem {
+//                print(foodItem.name ?? "")
+//                print(foodItem.calories ?? 10)
+//            }
+//        }
+//    }
         
 }
 
@@ -241,14 +250,14 @@ struct Food: Identifiable, Hashable {
     var cal_des: String
 }
 
-enum MoodTypes: String, CaseIterable, Identifiable {
-    case happy = "Happy"
-    case sad = "Sad"
-    case excited = "Excited"
-    case tired = "Tired"
-    
-    var id: String { self.rawValue }
-}
+//enum MoodTypes: String, CaseIterable, Identifiable {
+//    case happy = "Happy"
+//    case sad = "Sad"
+//    case excited = "Excited"
+//    case tired = "Tired"
+//    
+//    var id: String { self.rawValue }
+//}
 
 //enum MoodTimes: String, CaseIterable, Identifiable {
 //    case morning = "Morning"

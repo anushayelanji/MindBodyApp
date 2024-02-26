@@ -38,27 +38,27 @@ class CoreDataManager {
         }
     }
     
-    func cacheFoodItems(foodItems: [(name: String, calories: Int)]) {
-        let context = persistentContainer.viewContext
-        for foodItem in foodItems {
-            let entity = NSEntityDescription.entity(forEntityName: "FoodItem", in: context)!
-            let foodItemObject = NSManagedObject(entity: entity, insertInto: context)
-            foodItemObject.setValue(foodItem.name, forKey: "name")
-            foodItemObject.setValue(foodItem.calories, forKey: "calories")
-        }
-        saveContext()
-    }
-    
-    func fetchFoodItems() -> [FoodItem] {
-        let fetchRequest: NSFetchRequest<FoodItem> = FoodItem.fetchRequest()
-        do {
-            let foodItems = try context.fetch(fetchRequest)
-            return foodItems
-        } catch {
-            print("Failed to fetch food items: \(error)")
-            return []
-        }
-    }
+//    func cacheFoodItems(foodItems: [(name: String, calories: Int)]) {
+//        let context = persistentContainer.viewContext
+//        for foodItem in foodItems {
+//            let entity = NSEntityDescription.entity(forEntityName: "FoodItem", in: context)!
+//            let foodItemObject = NSManagedObject(entity: entity, insertInto: context)
+//            foodItemObject.setValue(foodItem.name, forKey: "name")
+//            foodItemObject.setValue(foodItem.calories, foruserKey: "calories")
+//        }
+//        saveContext()
+//    }
+//    
+//    func fetchFoodItems() -> [FoodItem] {
+//        let fetchRequest: NSFetchRequest<FoodItem> = FoodItem.fetchRequest()
+//        do {
+//            let foodItems = try context.fetch(fetchRequest)
+//            return foodItems
+//        } catch {
+//            print("Failed to fetch food items: \(error)")
+//            return []
+//        }
+//    }
     
 //    func cacheUserEntry(userEntry: UserModel) {
 //        let context = persistentContainer.viewContext
@@ -95,21 +95,74 @@ class CoreDataManager {
             if let existingUser = result.first as? NSManagedObject {
                 // Entry exists, update it
                 existingUser.setValue(userModel.name, forKey: "name")
+                existingUser.setValue(userModel.date, forKey: "date")
+                
                 if let breakfast = userModel.breakfast {
                     existingUser.setValue(breakfast, forKey: "breakfast")
                 }
-                existingUser.setValue(userModel.morningMood, forKey: "morningMood")
-                existingUser.setValue(userModel.date, forKey: "date")
+                if let lunch = userModel.lunch {
+                    existingUser.setValue(lunch, forKey: "lunch")
+                }
+                if let dinner = userModel.dinner {
+                    existingUser.setValue(dinner, forKey: "dinner")
+                }
+                if let dessert = userModel.dessert{
+                    existingUser.setValue(dessert, forKey: "dessert")
+                }
+                if let morningMood = userModel.morningMood{
+                    existingUser.setValue(morningMood, forKey: "morningMood")
+                }
+                if let morningMood = userModel.morningMood{
+                    existingUser.setValue(morningMood, forKey: "morningMood")
+                }
+                if let middayMood = userModel.middayMood{
+                    existingUser.setValue(middayMood, forKey: "middayMood")
+                }
+                if let nightMood = userModel.nightMood{
+                    existingUser.setValue(nightMood, forKey: "nightMood")
+                }
+//                if let cal_brek = userModel.cal_brek{
+//                    existingUser.setValue(cal_brek, forKey: "cal_brek")
+//                }
+                //existingUser.setValue(userModel.morningMood, forKey: "morningMood")
+                //existingUser.setValue(userModel.middayMood, forKey: "middayMood")
+                //existingUser.setValue(userModel.nightMood, forKey: "nightMood")
+                
             } else {
                 // Entry does not exist, create a new one
                 let entity = NSEntityDescription.entity(forEntityName: "User", in: context)!
                 let newUser = NSManagedObject(entity: entity, insertInto: context)
                 newUser.setValue(userModel.name, forKey: "name")
+                newUser.setValue(userModel.date, forKey: "date")
+                
                 if let breakfast = userModel.breakfast {
                     newUser.setValue(breakfast, forKey: "breakfast")
                 }
-                newUser.setValue(userModel.morningMood, forKey: "morningMood")
-                newUser.setValue(userModel.date, forKey: "date")
+                if let lunch = userModel.lunch {
+                    newUser.setValue(lunch, forKey: "lunch")
+                }
+                if let dinner = userModel.dinner {
+                    newUser.setValue(dinner, forKey: "dinner")
+                }
+                if let dessert = userModel.dessert{
+                    newUser.setValue(dessert, forKey: "dessert")
+                }
+                if let morningMood = userModel.morningMood{
+                    newUser.setValue(morningMood, forKey: "morningMood")
+                }
+                if let middayMood = userModel.middayMood{
+                    newUser.setValue(middayMood, forKey: "middayMood")
+                }
+                if let nightMood = userModel.nightMood{
+                    newUser.setValue(nightMood, forKey: "nightMood")
+                }
+//                if let cal_brek = userModel.cal_brek{
+//                    newUser.setValue(cal_brek, forKey: "cal_brek")
+//                }
+                //newUser.setValue(userModel.morningMood, forKey: "morningMood")
+                //newUser.setValue(userModel.middayMood, forKey: "middayMood")
+                //newUser.setValue(userModel.nightMood, forKey: "nightMood")
+                
             }
 
             // Save the context

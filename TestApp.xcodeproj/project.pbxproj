@@ -117,8 +117,8 @@
 				952AB0322B7CA578000E90BB /* Food.swift */,
 				52A8160F2B7C2324008A7590 /* Assets.xcassets */,
 				52A816112B7C2324008A7590 /* TestApp.entitlements */,
-				52A816122B7C2324008A7590 /* Preview Content */,
 				41B0036F2B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodeld */,
+				52A816122B7C2324008A7590 /* Preview Content */,
 				41B003722B82BFD900DD5CF7 /* CoreDataManager.swift */,
 				41B003782B8BFB2F00DD5CF7 /* User.swift */,
 			);

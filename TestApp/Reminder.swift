@@ -69,9 +69,11 @@ struct ReminderView: View {
                     
                     var userModel: UserModel
                     if selectedTime == .morning {
-                        userModel = UserModel(name: "Anusha", morningMood: selectedMood?.rawValue, breakfast: nil, date: date)
-                    } else {
-                        userModel = UserModel(name: "Anusha", morningMood: selectedMood?.rawValue, breakfast: nil, date: date)
+                        userModel = UserModel(name: "Anusha", date: date, morningMood: selectedMood?.rawValue )
+                    } else if selectedTime == .midday{
+                        userModel = UserModel(name: "Anusha", date: date, middayMood: selectedMood?.rawValue)
+                    }else{
+                        userModel = UserModel(name: "Anusha", date: date, nightMood: selectedMood?.rawValue)
                     }
                     
                     CoreDataManager.shared.updateUserEntry(name: userModel.name, date: userModel.date, userModel: userModel)
@@ -138,10 +140,10 @@ struct Reminder: Identifiable, Hashable {
 }
 
 enum MoodType: String, CaseIterable, Identifiable {
-    case happy = "Happy"
     case sad = "Sad"
-    case excited = "Excited"
-    case tired = "Tired"
+    case neutral = "Neutral"
+    case happy = "Happy"
+    case ecstatic = "Ecstatic"
     
     var id: String { self.rawValue }
 }

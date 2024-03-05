@@ -133,6 +133,12 @@ class CoreDataManager {
                 if let cal_des = userModel.cal_des {
                     existingUser.setValue(cal_des , forKey: "cal_des")
                 }
+                if let total_cals = userModel.total_cals {
+                    existingUser.setValue(total_cals  , forKey: "total_cals")
+                }
+                if let total_steps = userModel.total_steps {
+                    existingUser.setValue(total_steps  , forKey: "total_steps")
+                }
                 //existingUser.setValue(userModel.morningMood, forKey: "morningMood")
                 //existingUser.setValue(userModel.middayMood, forKey: "middayMood")
                 //existingUser.setValue(userModel.nightMood, forKey: "nightMood")
@@ -176,6 +182,13 @@ class CoreDataManager {
                 }
                 if let cal_des = userModel.cal_des {
                     newUser.setValue(cal_des , forKey: "cal_des")
+                }
+                
+                if let total_cals = userModel.total_cals {
+                    newUser.setValue(total_cals  , forKey: "total_cals")
+                }
+                if let total_steps = userModel.total_steps {
+                    newUser.setValue(total_steps  , forKey: "total_steps")
                 }
                 //newUser.setValue(userModel.morningMood, forKey: "morningMood")
                 //newUser.setValue(userModel.middayMood, forKey: "middayMood")

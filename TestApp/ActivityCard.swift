@@ -19,7 +19,7 @@ struct Activity {
     let id: Int
     let title: String
     let subtitle: String
-    let image: String
+    //let image: String
     let amount: String
 }
 
@@ -30,20 +30,27 @@ struct ActivityCard: View {
         VStack {
             HStack(alignment: .top) {
                 VStack{
-                    Text(activity.title)
+                    Text(activity.title).bold()
                     
                     Text(activity.subtitle)
                         .font(.caption)
                 }
                 Spacer()
-                Image(activity.image)
-                    .foregroundColor(.cyan)
+//                Image(activity.image)
+//                    .foregroundColor(.cyan)
             }
             .padding()
             
             Text(activity.amount)
+                .font(.system(size: 60))
+              
             //   .font(.system(size: 20))
+            Spacer(minLength: 40)
         }
+        .background(Color.cyan)
+        .cornerRadius(20)
+        Spacer(minLength: 90)
+        
     }
 }
 

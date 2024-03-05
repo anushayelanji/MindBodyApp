@@ -22,5 +22,7 @@ struct UserModel: Identifiable {
     var cal_lun: String?
     var cal_din: String?
     var cal_des: String?
+    var total_cals: Int32?
+    var total_steps: Int32?
  
 }

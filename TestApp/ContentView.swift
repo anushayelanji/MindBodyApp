@@ -13,7 +13,7 @@
 //    
 //    var body: some View {
 //        VStack {
-//            DatePicker("Select a date", selection: $selectedDate, displayedComponents: .date)
+//            DatxaxePicker("Select a date", selection: $selectedDate, displayedComponents: .date)
 //                .datePickerStyle(GraphicalDatePickerStyle())
 //                .padding()
 //                .onChange(of: selectedDate) { _ in

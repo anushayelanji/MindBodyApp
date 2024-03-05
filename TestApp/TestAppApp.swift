@@ -10,7 +10,7 @@ import SwiftUI
 
 @main
     struct TestAppApp: App {
-        @StateObject var manager = HealthManager()
+        //@StateObject var manager = HealthManager()
         var body: some Scene {
             
             WindowGroup {
@@ -22,7 +22,7 @@ import SwiftUI
     
 //navigation panel
 struct TabbedView: View {
-    @EnvironmentObject var manager: HealthManager
+    @StateObject var manager = HealthManager()
     var body: some View {
         TabView {
             NavigationView {
@@ -51,7 +51,7 @@ struct TabbedView: View {
                 Label("Calendar", systemImage: "calendar")
             }
             NavigationView {
-              Exercise()
+              FitnessView().environmentObject(manager)
             }
             .tabItem {
                 Label("Fitness", systemImage: "dumbbell")

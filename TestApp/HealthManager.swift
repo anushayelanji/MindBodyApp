@@ -49,12 +49,13 @@ class HealthManager: ObservableObject {
                 return
             }
             let stepCount = quantity.doubleValue(for: .count())
-            let activity = Activity(id: 0, title: "Steps taken today", subtitle: "Subtitle", image: "figure.walk", amount: stepCount.formattedString())
+            let activity = Activity(id: 0, title: "Steps taken today", subtitle: " ", amount: stepCount.formattedString())
             DispatchQueue.main.async {
                 self.activities["todaySteps"] = activity
             }
             
             print(stepCount)
+            
         }
         
         healthStore.execute(query)
@@ -69,7 +70,7 @@ class HealthManager: ObservableObject {
                 return
             }
             let stepCount = quantity.doubleValue(for: .kilocalorie())
-            let activity = Activity(id: 1, title: "Calories Burned", subtitle: "cum <3", image: "flame", amount: stepCount.formattedString())
+            let activity = Activity(id: 1, title: "Calories Burned", subtitle: " ", amount: stepCount.formattedString())
             DispatchQueue.main.async {
                 self.activities["todayCalories"] = activity
             }
@@ -87,7 +88,7 @@ extension Double {
     func formattedString() -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        numberFormatter.maximumFractionDigits = 0
+        numberFormatter.maximumFractionDigits = 3
         
         return numberFormatter.string(from: NSNumber(value: self))!
     }

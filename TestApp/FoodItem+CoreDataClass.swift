@@ -40,4 +40,6 @@ public class User: NSManagedObject, Identifiable {
     @NSManaged public var cal_lun: String?
     @NSManaged public var cal_din: String?
     @NSManaged public var cal_des: String?
+    @NSManaged public var total_cals: NSNumber?
+    @NSManaged public var total_steps: NSNumber?
 }

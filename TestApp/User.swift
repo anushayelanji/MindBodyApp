@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct UserModel {
+struct UserModel: Identifiable {
+    let id: UUID = UUID()
     var name: String
     var date: Date
     var morningMood: String?

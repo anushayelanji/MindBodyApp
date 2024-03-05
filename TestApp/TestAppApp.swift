@@ -10,7 +10,9 @@ import SwiftUI
 
 @main
     struct TestAppApp: App {
+        @StateObject var manager = HealthManager()
         var body: some Scene {
+            
             WindowGroup {
                 TabbedView()
                 
@@ -20,9 +22,11 @@ import SwiftUI
     
 //navigation panel
 struct TabbedView: View {
+    @EnvironmentObject var manager: HealthManager
     var body: some View {
         TabView {
             NavigationView {
+                
               HomeView()
             }
             .tabItem {
@@ -38,6 +42,11 @@ struct TabbedView: View {
           
                 //ContentView()
             }
+            .navigationBarTitle("Title")
+            .navigationBarTitleDisplayMode(.inline)
+           
+
+
             .tabItem {
                 Label("Calendar", systemImage: "calendar")
             }
@@ -45,7 +54,7 @@ struct TabbedView: View {
               Exercise()
             }
             .tabItem {
-                Label("Exercise", systemImage: "dumbbell")
+                Label("Fitness", systemImage: "dumbbell")
             }
             
         
@@ -53,3 +62,5 @@ struct TabbedView: View {
         }
     }
 }
+
+

@@ -10,8 +10,13 @@ import Foundation
 import SwiftUI
 
 struct Exercise: View {
+    @EnvironmentObject var manager: HealthManager
+    
     var body: some View {
+        NavigationView{
+            FitnessView()
+        }
         Text("Uikit")
-            .navigationTitle("Exercise")
+            .navigationTitle("Fitness")
     }
 }

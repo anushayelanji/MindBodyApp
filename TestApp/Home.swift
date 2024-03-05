@@ -29,19 +29,21 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        //@StateObject var homeViewModel = UserEntries()
-//        
-       Text("Home for reccs").navigationTitle("Home")
-                
-                    
-//                    let userEntries = CoreDataManager.shared.fetchUserEntries()
-//                                for entry in userEntries {
-//                
-//                                    print(entry)
-//                                    Text("hi")
-//                                }
-                
-                
+        NavigationView{
+            UserEntriesView()//.navigationTitle("Home")
+            //@StateObject var homeViewModel = UserEntries()
+            //
+            //Text("Home for reccs").navigationTitle("Home")
+            
+            
+            //                    let userEntries = CoreDataManager.shared.fetchUserEntries()
+            //                                for entry in userEntries {
+            //
+            //                                    print(entry)
+            //                                    Text("hi")
+            //                                }
+            
+        } .navigationBarTitle("Home")
         
                 }
         

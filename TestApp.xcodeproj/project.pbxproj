@@ -23,6 +23,10 @@
 		952AB0332B7CA578000E90BB /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952AB0322B7CA578000E90BB /* Food.swift */; };
 		95559C152B8D2A0200494243 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95559C142B8D2A0200494243 /* Exercise.swift */; };
 		95559C172B8D57BA00494243 /* UserEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95559C162B8D57BA00494243 /* UserEntries.swift */; };
+		95559C1B2B91540E00494243 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95559C1A2B91540E00494243 /* Login.swift */; };
+		95559C1F2B91ABC600494243 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95559C1E2B91ABC600494243 /* HealthManager.swift */; };
+		95559C212B91ABDD00494243 /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95559C202B91ABDD00494243 /* ActivityCard.swift */; };
+		95559C232B91B4FC00494243 /* FitnessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95559C222B91B4FC00494243 /* FitnessView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +45,19 @@
 			remoteInfo = TestApp;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		953402FC2B9686600091781A /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		41B003702B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MindBodyModel.xcdatamodel; sourceTree = "<group>"; };
@@ -61,8 +78,16 @@
 		52A816362B7C247E008A7590 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		52A816382B7C2558008A7590 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		952AB0322B7CA578000E90BB /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		953402ED2B9686600091781A /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		953402F02B9686600091781A /* AccountAuthenticationModificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAuthenticationModificationViewController.swift; sourceTree = "<group>"; };
+		953402F32B9686600091781A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		953402F52B9686600091781A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95559C142B8D2A0200494243 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		95559C162B8D57BA00494243 /* UserEntries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntries.swift; sourceTree = "<group>"; };
+		95559C1A2B91540E00494243 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		95559C1E2B91ABC600494243 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
+		95559C202B91ABDD00494243 /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
+		95559C222B91B4FC00494243 /* FitnessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +122,8 @@
 				52A8160A2B7C2323008A7590 /* TestApp */,
 				52A8161C2B7C2324008A7590 /* TestAppTests */,
 				52A816262B7C2325008A7590 /* TestAppUITests */,
+				953402EF2B9686600091781A /* MindBodyConnect */,
+				953402EC2B9686600091781A /* Frameworks */,
 				52A816092B7C2323008A7590 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -115,14 +142,18 @@
 			isa = PBXGroup;
 			children = (
 				52A8160B2B7C2323008A7590 /* TestAppApp.swift */,
+				95559C1E2B91ABC600494243 /* HealthManager.swift */,
+				95559C202B91ABDD00494243 /* ActivityCard.swift */,
 				52A8160D2B7C2323008A7590 /* ContentView.swift */,
 				95559C142B8D2A0200494243 /* Exercise.swift */,
 				52A816382B7C2558008A7590 /* Home.swift */,
+				95559C1A2B91540E00494243 /* Login.swift */,
 				95559C162B8D57BA00494243 /* UserEntries.swift */,
 				52A816362B7C247E008A7590 /* Reminder.swift */,
 				952AB0322B7CA578000E90BB /* Food.swift */,
 				52A8160F2B7C2324008A7590 /* Assets.xcassets */,
 				52A816112B7C2324008A7590 /* TestApp.entitlements */,
+				95559C222B91B4FC00494243 /* FitnessView.swift */,
 				41B0036F2B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodeld */,
 				52A816122B7C2324008A7590 /* Preview Content */,
 				41B003722B82BFD900DD5CF7 /* CoreDataManager.swift */,
@@ -156,6 +187,24 @@
 			path = TestAppUITests;
 			sourceTree = "<group>";
 		};
+		953402EC2B9686600091781A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				953402ED2B9686600091781A /* AuthenticationServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		953402EF2B9686600091781A /* MindBodyConnect */ = {
+			isa = PBXGroup;
+			children = (
+				953402F02B9686600091781A /* AccountAuthenticationModificationViewController.swift */,
+				953402F22B9686600091781A /* MainInterface.storyboard */,
+				953402F52B9686600091781A /* Info.plist */,
+			);
+			path = MindBodyConnect;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,6 +215,7 @@
 				52A816042B7C2323008A7590 /* Sources */,
 				52A816052B7C2323008A7590 /* Frameworks */,
 				52A816062B7C2323008A7590 /* Resources */,
+				953402FC2B9686600091781A /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -288,7 +338,9 @@
 			files = (
 				52A816372B7C247E008A7590 /* Reminder.swift in Sources */,
 				41B003712B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodeld in Sources */,
+				95559C232B91B4FC00494243 /* FitnessView.swift in Sources */,
 				41B003762B82C32400DD5CF7 /* FoodItem+CoreDataClass.swift in Sources */,
+				95559C1B2B91540E00494243 /* Login.swift in Sources */,
 				52A8160E2B7C2323008A7590 /* ContentView.swift in Sources */,
 				952AB0332B7CA578000E90BB /* Food.swift in Sources */,
 				95559C152B8D2A0200494243 /* Exercise.swift in Sources */,
@@ -297,6 +349,8 @@
 				41B003732B82BFD900DD5CF7 /* CoreDataManager.swift in Sources */,
 				52A8160C2B7C2323008A7590 /* TestAppApp.swift in Sources */,
 				95559C172B8D57BA00494243 /* UserEntries.swift in Sources */,
+				95559C1F2B91ABC600494243 /* HealthManager.swift in Sources */,
+				95559C212B91ABDD00494243 /* ActivityCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +385,17 @@
 			targetProxy = 52A816242B7C2325008A7590 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		953402F22B9686600091781A /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				953402F32B9686600091781A /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		52A8162B2B7C2325008A7590 /* Debug */ = {
@@ -450,13 +515,15 @@
 		52A8162E2B7C2325008A7590 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TestApp/TestApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NHR5FQ9U6T;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -476,8 +543,9 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = abc.TestApp;
+				PRODUCT_BUNDLE_IDENTIFIER = abc.MindBodyA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -489,13 +557,15 @@
 		52A8162F2B7C2325008A7590 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TestApp/TestApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NHR5FQ9U6T;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -515,8 +585,9 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = abc.TestApp;
+				PRODUCT_BUNDLE_IDENTIFIER = abc.MindBodyA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -152,29 +152,29 @@ struct FoodView: View {
                         
                   
                         
-                        let stringNumber1: String? = entry.cal_brek
-                        guard let unwrappedString = stringNumber1, let intBrek = Int(unwrappedString) else {
-                            //print("The string either is nil or cannot be converted to an Int.")
-                            return
-                        }
-                        
-                        let stringNumber2: String? = entry.cal_lun
-                        guard let unwrappedString = stringNumber2, let intLun = Int(unwrappedString) else {
-                            //print("The string either is nil or cannot be converted to an Int.")
-                            return
-                        }
-                        
-                        let stringNumber3: String? = entry.cal_din
-                        guard let unwrappedString = stringNumber3, let intDin = Int(unwrappedString) else {
-                            //print("The string either is nil or cannot be converted to an Int.")
-                            return
-                        }
-                        
-                        let stringNumber4: String? = entry.cal_des
-                        guard let unwrappedString = stringNumber4, let intDes = Int(unwrappedString) else {
-                            //print("The string either is nil or cannot be converted to an Int.")
-                            return
-                        }
+//                        let stringNumber1: String? = entry.cal_brek
+//                        guard let unwrappedString = stringNumber1, let intBrek = Int(unwrappedString) else {
+//                            //print("The string either is nil or cannot be converted to an Int.")
+//                            return
+//                        }
+//                        
+//                        let stringNumber2: String? = entry.cal_lun
+//                        guard let unwrappedString = stringNumber2, let intLun = Int(unwrappedString) else {
+//                            //print("The string either is nil or cannot be converted to an Int.")
+//                            return
+//                        }
+//                        
+//                        let stringNumber3: String? = entry.cal_din
+//                        guard let unwrappedString = stringNumber3, let intDin = Int(unwrappedString) else {
+//                            //print("The string either is nil or cannot be converted to an Int.")
+//                            return
+//                        }
+//                        
+//                        let stringNumber4: String? = entry.cal_des
+//                        guard let unwrappedString = stringNumber4, let intDes = Int(unwrappedString) else {
+//                            //print("The string either is nil or cannot be converted to an Int.")
+//                            return
+//                        }
 //                        print("Converted Int value:", intValue)
                         
 

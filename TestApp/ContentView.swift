@@ -32,7 +32,13 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
+    
+    @EnvironmentObject var sessionManager: SessionManager
+    
+    //@State private var userID = "ABC"
+    
     @State private var selectedDate = Date()
     @State private var showingReminderView = false
     @State private var showingFoodView = false
@@ -54,7 +60,12 @@ struct ContentView: View {
                     }.padding()
                     
                         .sheet(isPresented: $showingReminderView) {
-                            ReminderView(date: selectedDate, reminders: $reminders)
+                            
+                            if let userID = sessionManager.currentUser?.username {
+                                ReminderView(userID: userID, date: selectedDate, reminders: $reminders)
+                            } else {
+                                Text("No user logged in")
+                            }
                         }
                     
                     Button("Add Food") {
@@ -62,7 +73,12 @@ struct ContentView: View {
                         second = true
                     }
                     .sheet(isPresented: $showingFoodView) {
-                        FoodView(date: selectedDate, foods: $foods)
+                        if let userID = sessionManager.currentUser?.username {
+                            FoodView(userID: userID, date: selectedDate, foods: $foods)
+                        } else {
+                            Text("No user logged in")
+                        }
+                        
                     }
                 }
                 HStack{

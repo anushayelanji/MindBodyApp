@@ -26,6 +26,8 @@
 import SwiftUI
 
 struct ReminderView: View {
+    
+    var userID: String
     var date: Date
     //@State private var reminderTitle = ""
     @State private var selectedMood: MoodType? = nil
@@ -70,11 +72,11 @@ struct ReminderView: View {
                     
                     var userModel: UserModel
                     if selectedTime == .morning {
-                        userModel = UserModel(name: "Anusha", date: date, morningMood: selectedMood?.rawValue )
+                        userModel = UserModel(name: userID, date: date, morningMood: selectedMood?.rawValue )
                     } else if selectedTime == .midday{
-                        userModel = UserModel(name: "Anusha", date: date, middayMood: selectedMood?.rawValue)
+                        userModel = UserModel(name: userID, date: date, middayMood: selectedMood?.rawValue)
                     }else{
-                        userModel = UserModel(name: "Anusha", date: date, nightMood: selectedMood?.rawValue)
+                        userModel = UserModel(name: userID, date: date, nightMood: selectedMood?.rawValue)
                     }
                     
                     CoreDataManager.shared.updateUserEntry(name: userModel.name, date: userModel.date, userModel: userModel)

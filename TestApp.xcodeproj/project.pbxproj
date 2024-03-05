@@ -11,6 +11,9 @@
 		41B003732B82BFD900DD5CF7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B003722B82BFD900DD5CF7 /* CoreDataManager.swift */; };
 		41B003762B82C32400DD5CF7 /* FoodItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B003742B82C32400DD5CF7 /* FoodItem+CoreDataClass.swift */; };
 		41B003792B8BFB2F00DD5CF7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B003782B8BFB2F00DD5CF7 /* User.swift */; };
+		529F996E2B9156DF00C6D7A3 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529F996D2B9156DF00C6D7A3 /* UserAuth.swift */; };
+		529F99702B91572E00C6D7A3 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529F996F2B91572E00C6D7A3 /* AppUser.swift */; };
+		529F99762B9160D300C6D7A3 /* content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529F99752B9160D300C6D7A3 /* content.swift */; };
 		52A8160C2B7C2323008A7590 /* TestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A8160B2B7C2323008A7590 /* TestAppApp.swift */; };
 		52A8160E2B7C2323008A7590 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A8160D2B7C2323008A7590 /* ContentView.swift */; };
 		52A816102B7C2324008A7590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52A8160F2B7C2324008A7590 /* Assets.xcassets */; };
@@ -47,6 +50,9 @@
 		41B003722B82BFD900DD5CF7 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		41B003742B82C32400DD5CF7 /* FoodItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FoodItem+CoreDataClass.swift"; path = "TestApp/FoodItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		41B003782B8BFB2F00DD5CF7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		529F996D2B9156DF00C6D7A3 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
+		529F996F2B91572E00C6D7A3 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		529F99752B9160D300C6D7A3 /* content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = content.swift; sourceTree = "<group>"; };
 		52A816082B7C2323008A7590 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A8160B2B7C2323008A7590 /* TestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppApp.swift; sourceTree = "<group>"; };
 		52A8160D2B7C2323008A7590 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,6 +121,9 @@
 			isa = PBXGroup;
 			children = (
 				52A8160B2B7C2323008A7590 /* TestAppApp.swift */,
+				529F99752B9160D300C6D7A3 /* content.swift */,
+				529F996F2B91572E00C6D7A3 /* AppUser.swift */,
+				529F996D2B9156DF00C6D7A3 /* UserAuth.swift */,
 				52A8160D2B7C2323008A7590 /* ContentView.swift */,
 				95559C142B8D2A0200494243 /* Exercise.swift */,
 				52A816382B7C2558008A7590 /* Home.swift */,
@@ -286,11 +295,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				529F99702B91572E00C6D7A3 /* AppUser.swift in Sources */,
+				529F99762B9160D300C6D7A3 /* content.swift in Sources */,
 				52A816372B7C247E008A7590 /* Reminder.swift in Sources */,
 				41B003712B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodeld in Sources */,
 				41B003762B82C32400DD5CF7 /* FoodItem+CoreDataClass.swift in Sources */,
 				52A8160E2B7C2323008A7590 /* ContentView.swift in Sources */,
 				952AB0332B7CA578000E90BB /* Food.swift in Sources */,
+				529F996E2B9156DF00C6D7A3 /* UserAuth.swift in Sources */,
 				95559C152B8D2A0200494243 /* Exercise.swift in Sources */,
 				41B003792B8BFB2F00DD5CF7 /* User.swift in Sources */,
 				52A816392B7C2558008A7590 /* Home.swift in Sources */,

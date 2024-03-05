@@ -10,10 +10,11 @@ import SwiftUI
 
 @main
     struct TestAppApp: App {
+        
         var body: some Scene {
             WindowGroup {
-                TabbedView()
-                
+                Content()
+                    .environmentObject(SessionManager.shared)
             }
         }
     }

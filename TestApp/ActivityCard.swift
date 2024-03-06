@@ -47,7 +47,7 @@ struct ActivityCard: View {
             //   .font(.system(size: 20))
             Spacer(minLength: 40)
         }
-        .background(Color.cyan)
+        .background(Color.blue)
         .cornerRadius(20)
         Spacer(minLength: 90)
         

@@ -30,7 +30,7 @@ class UserEntries: ObservableObject {
 
             UserModel(
                 name: user.name,
-                date: user.date,
+                date: user.date ,
                 morningMood: user.morningMood,
                 middayMood: user.middayMood,
                 nightMood: user.nightMood,
@@ -87,9 +87,12 @@ struct UserEntriesView: View {
                         // Recommendations based on heuristics
                         generateRecommendations(for: userModel)
                         
+                        
                         Text("")
                     }
                 }
+                
+                
            // }.padding(.top, -30)
         //Spacer()
                 VStack{

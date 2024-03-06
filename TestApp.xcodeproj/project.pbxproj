@@ -26,6 +26,8 @@
 		95559C1F2B91ABC600494243 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95559C1E2B91ABC600494243 /* HealthManager.swift */; };
 		95559C212B91ABDD00494243 /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95559C202B91ABDD00494243 /* ActivityCard.swift */; };
 		95559C232B91B4FC00494243 /* FitnessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95559C222B91B4FC00494243 /* FitnessView.swift */; };
+		95CB17342B97F73C0001470F /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB17332B97F73C0001470F /* UserAuth.swift */; };
+		95CB17362B97F83F0001470F /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB17352B97F83F0001470F /* AppUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,8 @@
 		95559C1E2B91ABC600494243 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		95559C202B91ABDD00494243 /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
 		95559C222B91B4FC00494243 /* FitnessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessView.swift; sourceTree = "<group>"; };
+		95CB17332B97F73C0001470F /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
+		95CB17352B97F83F0001470F /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,8 @@
 				95559C202B91ABDD00494243 /* ActivityCard.swift */,
 				52A8160D2B7C2323008A7590 /* ContentView.swift */,
 				52A816382B7C2558008A7590 /* Home.swift */,
+				95CB17332B97F73C0001470F /* UserAuth.swift */,
+				95CB17352B97F83F0001470F /* AppUser.swift */,
 				95559C1A2B91540E00494243 /* Login.swift */,
 				95559C162B8D57BA00494243 /* UserEntries.swift */,
 				52A816362B7C247E008A7590 /* Reminder.swift */,
@@ -333,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95CB17342B97F73C0001470F /* UserAuth.swift in Sources */,
 				52A816372B7C247E008A7590 /* Reminder.swift in Sources */,
 				41B003712B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodeld in Sources */,
 				95559C232B91B4FC00494243 /* FitnessView.swift in Sources */,
@@ -340,6 +347,7 @@
 				95559C1B2B91540E00494243 /* Login.swift in Sources */,
 				52A8160E2B7C2323008A7590 /* ContentView.swift in Sources */,
 				952AB0332B7CA578000E90BB /* Food.swift in Sources */,
+				95CB17362B97F83F0001470F /* AppUser.swift in Sources */,
 				41B003792B8BFB2F00DD5CF7 /* User.swift in Sources */,
 				52A816392B7C2558008A7590 /* Home.swift in Sources */,
 				41B003732B82BFD900DD5CF7 /* CoreDataManager.swift in Sources */,

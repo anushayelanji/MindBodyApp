@@ -14,7 +14,7 @@ import SwiftUI
         var body: some Scene {
             
             WindowGroup {
-                TabbedView()
+                Content().environmentObject(SessionManager.shared)
                 
             }
         }
@@ -64,3 +64,16 @@ struct TabbedView: View {
 }
 
 
+struct Content: View {
+    @EnvironmentObject var sessionManager: SessionManager
+
+    var body: some View {
+        Group {
+            if sessionManager.currentUser != nil {
+                TabbedView()
+            } else {
+                LoginView()
+            }
+        }
+    }
+}

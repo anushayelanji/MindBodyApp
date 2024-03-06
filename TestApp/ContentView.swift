@@ -33,6 +33,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var sessionManager: SessionManager
+    
+    @ObservedObject var userEntries = UserEntries()
+    
     @State private var selectedDate = Date()
     @State private var showingReminderView = false
     @State private var showingFoodView = false
@@ -40,21 +44,28 @@ struct ContentView: View {
     @State private var foods: [Food] = []
     @State private var first = false
     @State private var second = false
-
+    
     var body: some View {
         NavigationView {
             VStack {
                 DatePicker("Select a date", selection: $selectedDate, displayedComponents: .date)
                     .datePickerStyle(GraphicalDatePickerStyle())
-                    //.padding()
+                //.padding()
                 HStack{
                     Button("Add Mood") {
                         showingReminderView = true
                         first = true
                     }.padding()
                     
+                    
+                    
                         .sheet(isPresented: $showingReminderView) {
-                            ReminderView(date: selectedDate, reminders: $reminders)
+                            
+                            if let userID = sessionManager.currentUser?.username {
+                                ReminderView(userID: userID, date: selectedDate, reminders: $reminders)
+                            } else {
+                                Text("No user logged in")
+                            }
                         }
                     
                     Button("Add Food") {
@@ -62,130 +73,192 @@ struct ContentView: View {
                         second = true
                     }
                     .sheet(isPresented: $showingFoodView) {
-                        FoodView(date: selectedDate, foods: $foods)
+                        if let userID = sessionManager.currentUser?.username {
+                            FoodView(userID: userID, date: selectedDate, foods: $foods)
+                        } else {
+                            Text("No user logged in")
+                        }
+                        
                     }
                 }
                 HStack{
+                    let userID = sessionManager.currentUser?.username
                     VStack{
+                        //let userID = sessionManager.currentUser?.username
                         
                         if first{Text("Moods").bold()}
-                        List(reminders) { reminder in
+                        List(userEntries.data.filter {$0.name == userID}) { userModel in
                             
-                            VStack(alignment: .leading) {
-                                //Text(reminder.title)
+                           // if userModel.name == userID {
+                                VStack(alignment: .leading) {
+                                    
+                                    Text("\(userModel.date, formatter: itemFormatter)")
+                                   .font(.caption)
+                                  .foregroundColor(.gray)
+                                    
+                                    
+                                 
+                                    Text("Morning Mood").bold().font(.caption)
+                                Text(userModel.morningMood ?? " ")
+                                .font(.caption)
+                                    
+                                    Text("Midday Mood").bold().font(.caption)
+                                Text(userModel.middayMood ?? " ")
+                                .font(.caption)
+                                    
+                                    Text("Night Mood").bold().font(.caption)
+                                Text(userModel.nightMood ?? " ")
+                                .font(.caption)
                                 
-                                Text("\(reminder.date, formatter: itemFormatter)")
-                                    .font(.caption)
-                                    .foregroundColor(.gray)
-                                
-                                if let mood = reminder.time {
-                                    Text(mood.rawValue)
+                                                                          //.foregroundColor(.secondary)
+                                 
+//                                    Text(userModel.name)
+//                                        .font(.headline)
+//                                    
+//                                    Text("Date: \(userModel.date, formatter: itemFormatter)")
+//                                        .font(.subheadline)
+//                                    
+//                                    Text("Breakfast: " + (userModel.breakfast ?? "Empty breakfast"))
+//                                    Text("Calories: " + (userModel.cal_brek ?? "Empty"))
+//                                    
+//                                    Text("Lunch: " + (userModel.lunch ?? "Empty lunch"))
+//                                    Text("Calories: " + (userModel.cal_lun ?? "Empty"))
+//                                    
+//                                    Text("Dessert: " + (userModel.dessert ?? "Empty dessert"))
+//                                    Text("Calories: " + (userModel.cal_des ?? "Empty"))
+//                                    
+//                                    Text("Morning Mood: " + (userModel.morningMood ?? "Empty mood"))
+//                                    Text("Midday Mood: " + (userModel.middayMood ?? "Empty mood"))
+//                                    Text("Night Mood: " + (userModel.nightMood ?? "Empty mood"))
+                                    
+                                    
+                                    
+                                    
+                                    Text("")
+                               // }
+                            }
+                        }
+                            
+                            //                        if first{Text("Moods").bold()}
+                            //                        List(reminders) { reminder in
+                            //
+                            //                            VStack(alignment: .leading) {
+                            //                                //Text(reminder.title)
+                            //
+                            //                                Text("\(reminder.date, formatter: itemFormatter)")
+                            //                                    .font(.caption)
+                            //                                    .foregroundColor(.gray)
+                            //
+                            //                                if let mood = reminder.time {
+                            //                                    Text(mood.rawValue)
+                            //                                        .font(.caption)
+                            //                                        .bold()
+                            //                                        //.foregroundColor(.secondary)
+                            //
+                            //                                }
+                            //
+                            //                                if let mood = reminder.mood {
+                            //                                    Text(mood.rawValue)
+                            //                                        .font(.caption2)
+                            //                                        //.foregroundColor(.secondary)
+                            //                                }
+                            //
+                            //                            }
+                            //
+                            //                        }
+                        }
+                        
+                        
+                        
+                        
+                        VStack{
+                            if second{Text("Foods eaten").bold()}
+                            
+                            List(foods) { food in
+                                VStack(alignment: .leading) {
+                                    //Text(reminder.title)
+                                    
+                                    
+                                    Text("\(food.date, formatter: itemFormatter)")
                                         .font(.caption)
-                                        .bold()
-                                        //.foregroundColor(.secondary)
+                                        .foregroundColor(.gray)
+                                    
+                                    //                        if let mood = reminder.time {
+                                    //                            Text(mood.rawValue)
+                                    //                                .font(.caption2)
+                                    //                                .bold()
+                                    //                                .foregroundColor(.secondary)
+                                    //
+                                    //                        }
+                                    
+                                    
+                                    if food.breakfast != ""{
+                                        Text("Breakfast")
+                                            .font(.caption)
+                                            .bold()
+                                        HStack{
+                                            Text(food.breakfast)
+                                                .font(.caption2)
+                                            Spacer()
+                                            Text(food.cal_brek)
+                                                .font(.caption2)
+                                        }
+                                    }
+                                    
+                                    if food.lunch != ""{
+                                        Text("Lunch")
+                                            .font(.caption)
+                                            .bold()
+                                        HStack{
+                                            Text(food.lunch)
+                                                .font(.caption2)
+                                            Spacer()
+                                            Text(food.cal_lun)
+                                                .font(.caption2)
+                                        }
+                                    }
+                                    
+                                    if food.dinner != ""{
+                                        Text("Dinner")
+                                            .font(.caption)
+                                            .bold()
+                                        HStack{
+                                            Text(food.dinner)
+                                                .font(.caption2)
+                                            Spacer()
+                                            Text(food.cal_din)
+                                                .font(.caption2)
+                                        }
+                                    }
+                                    
+                                    if food.dessert != ""{
+                                        Text("Dessert")
+                                            .font(.caption)
+                                            .bold()
+                                        HStack{
+                                            Text(food.dessert)
+                                                .font(.caption2)
+                                            Spacer()
+                                            Text(food.cal_des)
+                                                .font(.caption2)
+                                        }
+                                    }
                                     
                                 }
-                                
-                                if let mood = reminder.mood {
-                                    Text(mood.rawValue)
-                                        .font(.caption2)
-                                        //.foregroundColor(.secondary)
-                                }
-                                
                             }
-                            
                         }
                     }
-                  
                     
-                    VStack{
-                        if second{Text("Foods eaten").bold()}
-                        
-                        List(foods) { food in
-                            VStack(alignment: .leading) {
-                                //Text(reminder.title)
-                                
-                                
-                                Text("\(food.date, formatter: itemFormatter)")
-                                    .font(.caption)
-                                    .foregroundColor(.gray)
-                                
-                                //                        if let mood = reminder.time {
-                                //                            Text(mood.rawValue)
-                                //                                .font(.caption2)
-                                //                                .bold()
-                                //                                .foregroundColor(.secondary)
-                                //
-                                //                        }
-                                
-                                
-                                if food.breakfast != ""{
-                                    Text("Breakfast")
-                                        .font(.caption)
-                                        .bold()
-                                    HStack{
-                                        Text(food.breakfast)
-                                            .font(.caption2)
-                                        Spacer()
-                                        Text(food.cal_brek)
-                                            .font(.caption2)
-                                    }
-                                }
-                                
-                                if food.lunch != ""{
-                                    Text("Lunch")
-                                        .font(.caption)
-                                        .bold()
-                                    HStack{
-                                        Text(food.lunch)
-                                            .font(.caption2)
-                                        Spacer()
-                                        Text(food.cal_lun)
-                                            .font(.caption2)
-                                    }
-                                }
-                                
-                                if food.dinner != ""{
-                                    Text("Dinner")
-                                        .font(.caption)
-                                        .bold()
-                                    HStack{
-                                        Text(food.dinner)
-                                            .font(.caption2)
-                                        Spacer()
-                                        Text(food.cal_din)
-                                            .font(.caption2)
-                                    }
-                                }
-                                
-                                if food.dessert != ""{
-                                    Text("Dessert")
-                                        .font(.caption)
-                                        .bold()
-                                    HStack{
-                                        Text(food.dessert)
-                                            .font(.caption2)
-                                        Spacer()
-                                        Text(food.cal_des)
-                                            .font(.caption2)
-                                    }
-                                }
-                                
-                            }
-                        }
-                    }
+                    
+                    
                 }
-                    
-                 
+                .navigationTitle("Calendar")
                 
             }
-            .navigationTitle("Calendar")
             
         }
-      
+        
     }
-
-}
 
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
@@ -196,3 +269,9 @@ private let itemFormatter: DateFormatter = {
 
 
 
+//private static let dateFormatters: DateFormatter = {
+//        let formatter = DateFormatters()
+//        formatter.dateStyle = .medium
+//        formatter.timeStyle = .none
+//        return formatter
+//}()

@@ -9,25 +9,35 @@ import SwiftUI
 
 
 @main
-    struct TestAppApp: App {
-        //@StateObject var manager = HealthManager()
-        var body: some Scene {
-            
-            WindowGroup {
-                Content().environmentObject(SessionManager.shared)
-                
+struct TestAppApp: App {
+    var body: some Scene {
+        WindowGroup {
+            Content().environmentObject(SessionManager.shared)
+        }
+    }
+}
+
+struct Content: View {
+    @EnvironmentObject var sessionManager: SessionManager
+
+    var body: some View {
+        Group {
+            if sessionManager.currentUser != nil {
+                TabbedView()
+            } else {
+                LoginView()
             }
         }
     }
+}
     
-//navigation panel
+//Navigation panel
 struct TabbedView: View {
     @StateObject var manager = HealthManager()
     var body: some View {
         TabView {
             NavigationView {
-                
-              HomeView()
+              UserEntriesView().environmentObject(manager)
             }
             .tabItem {
                 Label("Home", systemImage: "house")
@@ -37,7 +47,6 @@ struct TabbedView: View {
                 VStack {
                             ContentView()
                             Spacer() // This pushes the calendar to the top
-                       
                         }
           
                 //ContentView()
@@ -64,16 +73,4 @@ struct TabbedView: View {
 }
 
 
-struct Content: View {
-    @EnvironmentObject var sessionManager: SessionManager
 
-    var body: some View {
-        Group {
-            if sessionManager.currentUser != nil {
-                TabbedView()
-            } else {
-                LoginView()
-            }
-        }
-    }
-}

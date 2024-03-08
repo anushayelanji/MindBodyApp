@@ -42,26 +42,71 @@ class SessionManager: ObservableObject {
 }
 
 
+//struct LoginView: View {
+//    @State private var userID = ""
+//    @ObservedObject private var sessionManager = SessionManager.shared
+//
+//    var body: some View {
+//        VStack {
+//            TextField("UserID", text: $userID)
+//                .padding()
+//                .textFieldStyle(RoundedBorderTextFieldStyle())
+//
+//            if let errorMessage = sessionManager.errorMessage {
+//                Text(errorMessage)
+//                    .foregroundColor(.red)
+//                    .padding()
+//            }
+//
+//            Button("Login") {
+//                sessionManager.login(withUserID: userID)
+//            }
+//            .padding()
+//        }
+//    }
+//}
+
+
 struct LoginView: View {
     @State private var userID = ""
     @ObservedObject private var sessionManager = SessionManager.shared
 
     var body: some View {
         VStack {
+            Text("Mind Body Connection")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .padding(.bottom, 30)
+                .foregroundColor(Color(red: 0.26, green: 0.26, blue: 0.26))
+
             TextField("UserID", text: $userID)
                 .padding()
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+                .padding(.horizontal, 20)
 
             if let errorMessage = sessionManager.errorMessage {
                 Text(errorMessage)
                     .foregroundColor(.red)
-                    .padding()
+                    .padding(.top, 5)
             }
 
-            Button("Login") {
+            Button(action: {
                 sessionManager.login(withUserID: userID)
+            }) {
+                Text("Login")
+                    .font(.headline)
+                    .foregroundColor(Color(red: 0.26, green: 0.26, blue: 0.26))
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.9607843160629272, green: 0.8078431487083435, blue: 0.8196078538894653, alpha: 1)), Color(#colorLiteral(red: 0.8196078538894653, green: 0.7529411911964417, blue: 0.9764705896377563, alpha: 1))]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .cornerRadius(10)
             }
-            .padding()
+            .padding(.horizontal, 20)
+            .padding(.top, 20)
         }
+        .padding()
     }
 }
+

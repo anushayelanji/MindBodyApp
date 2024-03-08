@@ -86,7 +86,7 @@ struct ContentView: View {
                     VStack{
                         //let userID = sessionManager.currentUser?.username
                         
-                        if first{Text("Moods").bold()}
+                        //if first{Text("Moods").bold()}
                         List(userEntries.data.filter {$0.name == userID}) { userModel in
                             
                            // if userModel.name == userID {
@@ -97,18 +97,25 @@ struct ContentView: View {
                                   .foregroundColor(.gray)
                                     
                                     
-                                 
-                                    Text("Morning Mood").bold().font(.caption)
-                                Text(userModel.morningMood ?? " ")
-                                .font(.caption)
+                                    if userModel.morningMood != nil{
+                                        Text("Morning Mood").bold().font(.caption)
+                                        Text(userModel.morningMood ?? " ")
+                                            .font(.caption)
+                                    }
                                     
-                                    Text("Midday Mood").bold().font(.caption)
-                                Text(userModel.middayMood ?? " ")
-                                .font(.caption)
+                                    if userModel.middayMood != nil{
+                                        Text("Midday Mood").bold().font(.caption)
+                                        Text(userModel.middayMood ?? " ")
+                                            .font(.caption)
+                                    }
                                     
-                                    Text("Night Mood").bold().font(.caption)
-                                Text(userModel.nightMood ?? " ")
-                                .font(.caption)
+                                    if userModel.nightMood != nil{
+                                        Text("Night Mood").bold().font(.caption)
+                                       Text(userModel.nightMood ?? " ")
+                                        .font(.caption)
+        
+                                    }
+
                                 
                                                                           //.foregroundColor(.secondary)
                                  
@@ -134,7 +141,7 @@ struct ContentView: View {
                                     
                                     
                                     
-                                    Text("")
+                                    //Text("")
                                // }
                             }
                         }
@@ -172,9 +179,9 @@ struct ContentView: View {
                         
                         
                         VStack{
-                            if second{Text("Foods eaten").bold()}
+                           // if second{Text("Foods eaten").bold()}
                             
-                            List(foods) { food in
+                            List(userEntries.data.filter {$0.name == userID}) { food in
                                 VStack(alignment: .leading) {
                                     //Text(reminder.title)
                                     
@@ -192,54 +199,57 @@ struct ContentView: View {
                                     //                        }
                                     
                                     
-                                    if food.breakfast != ""{
+                                    if food.breakfast != nil{
                                         Text("Breakfast")
                                             .font(.caption)
                                             .bold()
                                         HStack{
-                                            Text(food.breakfast)
+                                            Text(food.breakfast ?? " ")
                                                 .font(.caption2)
                                             Spacer()
-                                            Text(food.cal_brek)
+                                            Text(food.cal_brek ?? " ")
                                                 .font(.caption2)
                                         }
                                     }
                                     
-                                    if food.lunch != ""{
+                                    
+                                 
+                                    
+                                    if food.lunch != nil{
                                         Text("Lunch")
                                             .font(.caption)
                                             .bold()
                                         HStack{
-                                            Text(food.lunch)
+                                            Text(food.lunch ?? " ")
                                                 .font(.caption2)
                                             Spacer()
-                                            Text(food.cal_lun)
+                                            Text(food.cal_lun ?? " ")
                                                 .font(.caption2)
                                         }
                                     }
                                     
-                                    if food.dinner != ""{
+                                    if food.dinner != nil{
                                         Text("Dinner")
                                             .font(.caption)
                                             .bold()
                                         HStack{
-                                            Text(food.dinner)
+                                            Text(food.dinner ?? " ")
                                                 .font(.caption2)
                                             Spacer()
-                                            Text(food.cal_din)
+                                            Text(food.cal_din ?? " ")
                                                 .font(.caption2)
                                         }
                                     }
                                     
-                                    if food.dessert != ""{
+                                    if food.dessert != nil{
                                         Text("Dessert")
                                             .font(.caption)
                                             .bold()
                                         HStack{
-                                            Text(food.dessert)
+                                            Text(food.dessert ?? " ")
                                                 .font(.caption2)
                                             Spacer()
-                                            Text(food.cal_des)
+                                            Text(food.cal_des ?? " ")
                                                 .font(.caption2)
                                         }
                                     }

@@ -1,10 +1,3 @@
-//
-//  TestAppApp.swift
-//  TestApp
-//
-//  Created by John Chen on 2/13/24.
-//
-
 import SwiftUI
 
 
@@ -36,29 +29,29 @@ struct TabbedView: View {
     @StateObject var manager = HealthManager()
     var body: some View {
         TabView {
+            
+            //Home tab
             NavigationView {
               UserEntriesView().environmentObject(manager)
             }
             .tabItem {
                 Label("Home", systemImage: "house")
             }
+            
+            //Calender tab
             NavigationView {
-                
                 VStack {
-                            ContentView()
-                            Spacer() // This pushes the calendar to the top
-                        }
-          
-                //ContentView()
+                    ContentView()
+                    Spacer() // This pushes the calendar to the top
+                }
             }
             .navigationBarTitle("Title")
             .navigationBarTitleDisplayMode(.inline)
-           
-
-
             .tabItem {
                 Label("Calendar", systemImage: "calendar")
             }
+            
+            //Fitness view tab
             NavigationView {
               FitnessView().environmentObject(manager)
             }
@@ -66,7 +59,6 @@ struct TabbedView: View {
                 Label("Fitness", systemImage: "dumbbell")
             }
             
-        
             
         }
     }

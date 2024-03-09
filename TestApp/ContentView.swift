@@ -1,35 +1,3 @@
-//
-//  ContentView.swift
-//  TestApp
-//
-//  Created by John Chen on 2/13/24.
-//
-
-//import SwiftUI
-//
-//struct ContentView: View {
-//    @State private var selectedDate = Date()
-//    @State private var showReminder = false
-//    
-//    var body: some View {
-//        VStack {
-//            DatxaxePicker("Select a date", selection: $selectedDate, displayedComponents: .date)
-//                .datePickerStyle(GraphicalDatePickerStyle())
-//                .padding()
-//                .onChange(of: selectedDate) { _ in
-//                    showReminder = true
-//                }
-//            
-//            NavigationLink(destination: ReminderView(date: selectedDate), isActive: $showReminder) {
-//                EmptyView()
-//            }
-//        }
-//        .navigationTitle("Calendar")
-//    }
-//}
-//
-//
-
 import SwiftUI
 
 struct ContentView: View {
@@ -47,157 +15,96 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
+            //date picker
             VStack {
                 DatePicker("Select a date", selection: $selectedDate, displayedComponents: .date)
                     .datePickerStyle(GraphicalDatePickerStyle())
-                //.padding()
+            
                 HStack{
                     Button("Add Mood") {
                         showingReminderView = true
-                        first = true
-                    }.padding()
+                        //first = true
+                    }.font(.headline)
+                        .foregroundColor(Color(red: 0.26, green: 0.26, blue: 0.26))
+                        .padding()
+                        .frame(width: 150)
+                        .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.9607843160629272, green: 0.8078431487083435, blue: 0.8196078538894653, alpha: 1)), Color(#colorLiteral(red: 0.8196078538894653, green: 0.7529411911964417, blue: 0.9764705896377563, alpha: 1))]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .cornerRadius(10)
+                        //.padding()
                     
-                    
-                    
-                        .sheet(isPresented: $showingReminderView) {
-                            
-                            if let userID = sessionManager.currentUser?.username {
-                                ReminderView(userID: userID, date: selectedDate, reminders: $reminders)
-                            } else {
-                                Text("No user logged in")
-                            }
+                    .sheet(isPresented: $showingReminderView) {
+                        if let userID = sessionManager.currentUser?.username {
+                            ReminderView(userID: userID, date: selectedDate, reminders: $reminders)
+                        } else {
+                            Text("No user logged in")
                         }
+                    }
                     
                     Button("Add Food") {
                         showingFoodView = true
-                        second = true
-                    }
+                        //second = true
+                    }.font(.headline)
+                        .foregroundColor(Color(red: 0.26, green: 0.26, blue: 0.26))
+                        .padding()
+                        .frame(width: 150)
+                        .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.9607843160629272, green: 0.8078431487083435, blue: 0.8196078538894653, alpha: 1)), Color(#colorLiteral(red: 0.8196078538894653, green: 0.7529411911964417, blue: 0.9764705896377563, alpha: 1))]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .cornerRadius(10)
+                        //.padding()
+                    
                     .sheet(isPresented: $showingFoodView) {
                         if let userID = sessionManager.currentUser?.username {
                             FoodView(userID: userID, date: selectedDate, foods: $foods)
                         } else {
                             Text("No user logged in")
                         }
-                        
                     }
                 }
+                
+                //view of moods and foods inputted
                 HStack{
                     let userID = sessionManager.currentUser?.username
+                    
+                    //mood display
                     VStack{
-                        //let userID = sessionManager.currentUser?.username
                         
-                        //if first{Text("Moods").bold()}
                         List(userEntries.data.filter {$0.name == userID}) { userModel in
                             
-                           // if userModel.name == userID {
-                                VStack(alignment: .leading) {
-                                    
-                                    Text("\(userModel.date, formatter: itemFormatter)")
-                                   .font(.caption)
-                                  .foregroundColor(.gray)
-                                    
-                                    
-                                    if userModel.morningMood != nil{
-                                        Text("Morning Mood").bold().font(.caption)
-                                        Text(userModel.morningMood ?? " ")
-                                            .font(.caption)
-                                    }
-                                    
-                                    if userModel.middayMood != nil{
-                                        Text("Midday Mood").bold().font(.caption)
-                                        Text(userModel.middayMood ?? " ")
-                                            .font(.caption)
-                                    }
-                                    
-                                    if userModel.nightMood != nil{
-                                        Text("Night Mood").bold().font(.caption)
-                                       Text(userModel.nightMood ?? " ")
-                                        .font(.caption)
-        
-                                    }
-
+                            VStack(alignment: .leading) {
                                 
-                                                                          //.foregroundColor(.secondary)
-                                 
-//                                    Text(userModel.name)
-//                                        .font(.headline)
-//                                    
-//                                    Text("Date: \(userModel.date, formatter: itemFormatter)")
-//                                        .font(.subheadline)
-//                                    
-//                                    Text("Breakfast: " + (userModel.breakfast ?? "Empty breakfast"))
-//                                    Text("Calories: " + (userModel.cal_brek ?? "Empty"))
-//                                    
-//                                    Text("Lunch: " + (userModel.lunch ?? "Empty lunch"))
-//                                    Text("Calories: " + (userModel.cal_lun ?? "Empty"))
-//                                    
-//                                    Text("Dessert: " + (userModel.dessert ?? "Empty dessert"))
-//                                    Text("Calories: " + (userModel.cal_des ?? "Empty"))
-//                                    
-//                                    Text("Morning Mood: " + (userModel.morningMood ?? "Empty mood"))
-//                                    Text("Midday Mood: " + (userModel.middayMood ?? "Empty mood"))
-//                                    Text("Night Mood: " + (userModel.nightMood ?? "Empty mood"))
+                                Text("\(userModel.date, formatter: itemFormatter)")
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                                
+                                if userModel.morningMood != nil{
+                                    Text("Morning Mood").bold().font(.caption)
+                                    Text(userModel.morningMood ?? " ")
+                                        .font(.caption)
+                                }
+                                
+                                if userModel.middayMood != nil{
+                                    Text("Midday Mood").bold().font(.caption)
+                                    Text(userModel.middayMood ?? " ")
+                                        .font(.caption)
+                                }
+                                
+                                if userModel.nightMood != nil{
+                                    Text("Night Mood").bold().font(.caption)
+                                    Text(userModel.nightMood ?? " ")
+                                        .font(.caption)
                                     
-                                    
-                                    
-                                    
-                                    //Text("")
-                               // }
+                                }
                             }
                         }
-                            
-                            //                        if first{Text("Moods").bold()}
-                            //                        List(reminders) { reminder in
-                            //
-                            //                            VStack(alignment: .leading) {
-                            //                                //Text(reminder.title)
-                            //
-                            //                                Text("\(reminder.date, formatter: itemFormatter)")
-                            //                                    .font(.caption)
-                            //                                    .foregroundColor(.gray)
-                            //
-                            //                                if let mood = reminder.time {
-                            //                                    Text(mood.rawValue)
-                            //                                        .font(.caption)
-                            //                                        .bold()
-                            //                                        //.foregroundColor(.secondary)
-                            //
-                            //                                }
-                            //
-                            //                                if let mood = reminder.mood {
-                            //                                    Text(mood.rawValue)
-                            //                                        .font(.caption2)
-                            //                                        //.foregroundColor(.secondary)
-                            //                                }
-                            //
-                            //                            }
-                            //
-                            //                        }
-                        }
+                    }
+                    //food display
+                    VStack{
                         
-                        
-                        
-                        
-                        VStack{
-                           // if second{Text("Foods eaten").bold()}
-                            
-                            List(userEntries.data.filter {$0.name == userID}) { food in
+                        List(userEntries.data.filter {$0.name == userID}) { food in
                                 VStack(alignment: .leading) {
-                                    //Text(reminder.title)
-                                    
                                     
                                     Text("\(food.date, formatter: itemFormatter)")
                                         .font(.caption)
                                         .foregroundColor(.gray)
-                                    
-                                    //                        if let mood = reminder.time {
-                                    //                            Text(mood.rawValue)
-                                    //                                .font(.caption2)
-                                    //                                .bold()
-                                    //                                .foregroundColor(.secondary)
-                                    //
-                                    //                        }
-                                    
                                     
                                     if food.breakfast != nil{
                                         Text("Breakfast")
@@ -211,9 +118,6 @@ struct ContentView: View {
                                                 .font(.caption2)
                                         }
                                     }
-                                    
-                                    
-                                 
                                     
                                     if food.lunch != nil{
                                         Text("Lunch")
@@ -254,21 +158,14 @@ struct ContentView: View {
                                         }
                                     }
                                     
-                                }
                             }
                         }
                     }
-                    
-                    
-                    
                 }
-                .navigationTitle("Calendar")
-                
-            }
-            
+            }.navigationTitle("Calendar")
         }
-        
     }
+}
 
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
@@ -276,12 +173,3 @@ private let itemFormatter: DateFormatter = {
     formatter.timeStyle = .short
     return formatter
 }()
-
-
-
-//private static let dateFormatters: DateFormatter = {
-//        let formatter = DateFormatters()
-//        formatter.dateStyle = .medium
-//        formatter.timeStyle = .none
-//        return formatter
-//}()

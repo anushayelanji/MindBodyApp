@@ -1,11 +1,3 @@
-//
-//  CoreDataManager.swift
-//  TestApp
-//
-//  Created by Ravi on 2/18/24.
-//
-
-
 import CoreData
 
 class CoreDataManager {
@@ -38,40 +30,6 @@ class CoreDataManager {
         }
     }
     
-//    func cacheFoodItems(foodItems: [(name: String, calories: Int)]) {
-//        let context = persistentContainer.viewContext
-//        for foodItem in foodItems {
-//            let entity = NSEntityDescription.entity(forEntityName: "FoodItem", in: context)!
-//            let foodItemObject = NSManagedObject(entity: entity, insertInto: context)
-//            foodItemObject.setValue(foodItem.name, forKey: "name")
-//            foodItemObject.setValue(foodItem.calories, foruserKey: "calories")
-//        }
-//        saveContext()
-//    }
-//    
-//    func fetchFoodItems() -> [FoodItem] {
-//        let fetchRequest: NSFetchRequest<FoodItem> = FoodItem.fetchRequest()
-//        do {
-//            let foodItems = try context.fetch(fetchRequest)
-//            return foodItems
-//        } catch {
-//            print("Failed to fetch food items: \(error)")
-//            return []
-//        }
-//    }
-    
-//    func cacheUserEntry(userEntry: UserModel) {
-//        let context = persistentContainer.viewContext
-//        
-//        let entity = NSEntityDescription.entity(forEntityName: "User", in: context)!
-//        let userObject = NSManagedObject(entity: entity, insertInto: context)
-//        userObject.setValue(userEntry.name, forKey: "name")
-//        userObject.setValue(userEntry.breakfast, forKey: "breakfast")
-//        userObject.setValue(userEntry.morningMood, forKey: "morningMood")
-//        userObject.setValue(userEntry.date, forKey: "date")
-//        
-//        saveContext()
-//    }
     
     func updateUserEntry(name: String, date: Date, userModel: UserModel) {
         let context = persistentContainer.viewContext
@@ -139,9 +97,6 @@ class CoreDataManager {
                 if let total_steps = userModel.total_steps {
                     existingUser.setValue(total_steps  , forKey: "total_steps")
                 }
-                //existingUser.setValue(userModel.morningMood, forKey: "morningMood")
-                //existingUser.setValue(userModel.middayMood, forKey: "middayMood")
-                //existingUser.setValue(userModel.nightMood, forKey: "nightMood")
                 
             } else {
                 // Entry does not exist, create a new one
@@ -190,13 +145,9 @@ class CoreDataManager {
                 if let total_steps = userModel.total_steps {
                     newUser.setValue(total_steps  , forKey: "total_steps")
                 }
-                //newUser.setValue(userModel.morningMood, forKey: "morningMood")
-                //newUser.setValue(userModel.middayMood, forKey: "middayMood")
-                //newUser.setValue(userModel.nightMood, forKey: "nightMood")
                 
             }
 
-            // Save the context
             saveContext()
         } catch {
             print("Failed to update or create user entry: \(error)")
@@ -213,8 +164,5 @@ class CoreDataManager {
             return []
         }
     }
-//    func purgeUserEntity() {
-//        let context = persistentContainer.viewContext
-//        context
-//    }
+
 }

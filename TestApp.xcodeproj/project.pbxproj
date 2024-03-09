@@ -18,11 +18,9 @@
 		52A8161E2B7C2324008A7590 /* TestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A8161D2B7C2324008A7590 /* TestAppTests.swift */; };
 		52A816282B7C2325008A7590 /* TestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A816272B7C2325008A7590 /* TestAppUITests.swift */; };
 		52A8162A2B7C2325008A7590 /* TestAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A816292B7C2325008A7590 /* TestAppUITestsLaunchTests.swift */; };
-		52A816372B7C247E008A7590 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A816362B7C247E008A7590 /* Reminder.swift */; };
-		52A816392B7C2558008A7590 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A816382B7C2558008A7590 /* Home.swift */; };
+		52A816372B7C247E008A7590 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A816362B7C247E008A7590 /* Mood.swift */; };
 		952AB0332B7CA578000E90BB /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952AB0322B7CA578000E90BB /* Food.swift */; };
 		95559C172B8D57BA00494243 /* UserEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95559C162B8D57BA00494243 /* UserEntries.swift */; };
-		95559C1B2B91540E00494243 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95559C1A2B91540E00494243 /* Login.swift */; };
 		95559C1F2B91ABC600494243 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95559C1E2B91ABC600494243 /* HealthManager.swift */; };
 		95559C212B91ABDD00494243 /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95559C202B91ABDD00494243 /* ActivityCard.swift */; };
 		95559C232B91B4FC00494243 /* FitnessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95559C222B91B4FC00494243 /* FitnessView.swift */; };
@@ -76,15 +74,13 @@
 		52A816232B7C2325008A7590 /* TestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A816272B7C2325008A7590 /* TestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppUITests.swift; sourceTree = "<group>"; };
 		52A816292B7C2325008A7590 /* TestAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		52A816362B7C247E008A7590 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
-		52A816382B7C2558008A7590 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		52A816362B7C247E008A7590 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		952AB0322B7CA578000E90BB /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		953402ED2B9686600091781A /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		953402F02B9686600091781A /* AccountAuthenticationModificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAuthenticationModificationViewController.swift; sourceTree = "<group>"; };
 		953402F32B9686600091781A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		953402F52B9686600091781A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95559C162B8D57BA00494243 /* UserEntries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntries.swift; sourceTree = "<group>"; };
-		95559C1A2B91540E00494243 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		95559C1E2B91ABC600494243 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		95559C202B91ABDD00494243 /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
 		95559C222B91B4FC00494243 /* FitnessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessView.swift; sourceTree = "<group>"; };
@@ -144,23 +140,21 @@
 			isa = PBXGroup;
 			children = (
 				52A8160B2B7C2323008A7590 /* TestAppApp.swift */,
-				95559C1E2B91ABC600494243 /* HealthManager.swift */,
-				95559C202B91ABDD00494243 /* ActivityCard.swift */,
-				52A8160D2B7C2323008A7590 /* ContentView.swift */,
-				52A816382B7C2558008A7590 /* Home.swift */,
 				95CB17332B97F73C0001470F /* UserAuth.swift */,
 				95CB17352B97F83F0001470F /* AppUser.swift */,
-				95559C1A2B91540E00494243 /* Login.swift */,
 				95559C162B8D57BA00494243 /* UserEntries.swift */,
-				52A816362B7C247E008A7590 /* Reminder.swift */,
+				52A8160D2B7C2323008A7590 /* ContentView.swift */,
+				52A816362B7C247E008A7590 /* Mood.swift */,
 				952AB0322B7CA578000E90BB /* Food.swift */,
-				52A8160F2B7C2324008A7590 /* Assets.xcassets */,
-				52A816112B7C2324008A7590 /* TestApp.entitlements */,
 				95559C222B91B4FC00494243 /* FitnessView.swift */,
-				41B0036F2B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodeld */,
-				52A816122B7C2324008A7590 /* Preview Content */,
+				95559C1E2B91ABC600494243 /* HealthManager.swift */,
+				95559C202B91ABDD00494243 /* ActivityCard.swift */,
 				41B003722B82BFD900DD5CF7 /* CoreDataManager.swift */,
 				41B003782B8BFB2F00DD5CF7 /* User.swift */,
+				52A8160F2B7C2324008A7590 /* Assets.xcassets */,
+				52A816112B7C2324008A7590 /* TestApp.entitlements */,
+				41B0036F2B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodeld */,
+				52A816122B7C2324008A7590 /* Preview Content */,
 			);
 			path = TestApp;
 			sourceTree = "<group>";
@@ -340,16 +334,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				95CB17342B97F73C0001470F /* UserAuth.swift in Sources */,
-				52A816372B7C247E008A7590 /* Reminder.swift in Sources */,
+				52A816372B7C247E008A7590 /* Mood.swift in Sources */,
 				41B003712B82BC7D00DD5CF7 /* MindBodyModel.xcdatamodeld in Sources */,
 				95559C232B91B4FC00494243 /* FitnessView.swift in Sources */,
 				41B003762B82C32400DD5CF7 /* FoodItem+CoreDataClass.swift in Sources */,
-				95559C1B2B91540E00494243 /* Login.swift in Sources */,
 				52A8160E2B7C2323008A7590 /* ContentView.swift in Sources */,
 				952AB0332B7CA578000E90BB /* Food.swift in Sources */,
 				95CB17362B97F83F0001470F /* AppUser.swift in Sources */,
 				41B003792B8BFB2F00DD5CF7 /* User.swift in Sources */,
-				52A816392B7C2558008A7590 /* Home.swift in Sources */,
 				41B003732B82BFD900DD5CF7 /* CoreDataManager.swift in Sources */,
 				52A8160C2B7C2323008A7590 /* TestAppApp.swift in Sources */,
 				95559C172B8D57BA00494243 /* UserEntries.swift in Sources */,

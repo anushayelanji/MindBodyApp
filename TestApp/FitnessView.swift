@@ -1,12 +1,4 @@
-
 import Foundation
-//
-//  HomeView.swift
-//  pleasehelp
-//
-//  Created by Vinny on 2/12/24.
-//
-
 import SwiftUI
 
 struct FitnessView: View {

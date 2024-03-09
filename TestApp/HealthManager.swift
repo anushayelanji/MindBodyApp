@@ -1,10 +1,3 @@
-//
-//  HealthManager.swift
-//  pleasehelp
-//
-//  Created by Vinny on 2/12/24.
-//
-
 import Foundation
 import HealthKit
 
@@ -41,7 +34,6 @@ class HealthManager: ObservableObject {
     
     func fetchTodaySteps() {
         let steps = HKQuantityType(.stepCount)
-       // let calories = HKQuantityType(.activeEnergyBurned)
         let predicate = HKQuery.predicateForSamples(withStart: .startOfDay, end: Date())
         let query = HKStatisticsQuery(quantityType: steps, quantitySamplePredicate: predicate) { _, result, error in
             guard let quantity = result?.sumQuantity(), error == nil else {
@@ -62,20 +54,19 @@ class HealthManager: ObservableObject {
     }
     
     func fetchTodayCalories() {
-        let steps = HKQuantityType(.activeEnergyBurned)
+        let cals = HKQuantityType(.activeEnergyBurned)
         let predicate = HKQuery.predicateForSamples(withStart: .startOfDay, end: Date())
-        let query = HKStatisticsQuery(quantityType: steps, quantitySamplePredicate: predicate) { _, result, error in
+        let query = HKStatisticsQuery(quantityType: cals, quantitySamplePredicate: predicate) { _, result, error in
             guard let quantity = result?.sumQuantity(), error == nil else {
                 print("calorie fetch error")
                 return
             }
-            let stepCount = quantity.doubleValue(for: .kilocalorie())
-            let activity = Activity(id: 1, title: "Calories Burned", subtitle: " ", amount: stepCount.formattedString())
+            let calCount = quantity.doubleValue(for: .kilocalorie())
+            let activity = Activity(id: 1, title: "Calories Burned", subtitle: " ", amount: calCount.formattedString())
             DispatchQueue.main.async {
                 self.activities["todayCalories"] = activity
             }
-            
-            print(stepCount)
+            print(calCount)
         }
         
         healthStore.execute(query)

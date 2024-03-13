@@ -35,6 +35,7 @@ struct ContentView: View {
                     .sheet(isPresented: $showingReminderView) {
                         if let userID = sessionManager.currentUser?.username {
                             ReminderView(userID: userID, date: selectedDate, reminders: $reminders)
+                           
                         } else {
                             Text("No user logged in")
                         }

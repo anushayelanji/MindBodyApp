@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ReminderView: View {
+struct MoodView: View {
     var userID: String
     var date: Date
     @State private var selectedMood: MoodType? = nil
@@ -47,12 +47,12 @@ struct ReminderView: View {
                     
                     CoreDataManager.shared.updateUserEntry(name: userModel.name, date: userModel.date, userModel: userModel)
                     
-//                    let userEntries = CoreDataManager.shared.fetchUserEntries()
-//                    
-//                    //printing all data
-//                    for entry in userEntries {
-//                        print(entry)
-//                    }
+                    let userEntries = CoreDataManager.shared.fetchUserEntries()
+                    
+                    //printing all data
+                    for entry in userEntries {
+                        print(entry)
+                    }
                     
                     selectedTime = nil // Reset selected time
                     selectedMood = nil // Reset selected mood
@@ -88,7 +88,6 @@ struct ReminderView: View {
             }
         }
         .padding()
-        //.padding()
     }
         
 }

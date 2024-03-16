@@ -57,7 +57,7 @@ struct UserEntriesView: View {
         let filteredUserModels = userEntries.data.filter { userModel in
             let calendar = Calendar.current
             let components = calendar.dateComponents([.year, .month, .day], from: userModel.date)
-            return components.year == 2024 && components.month == 3 && components.day == 12
+            return components.year == 2024 && components.month == 3 && components.day == 13
         }
         return filteredUserModels
     }
@@ -68,7 +68,7 @@ struct UserEntriesView: View {
             let userID = sessionManager.currentUser?.username
             
             Spacer()
-            Text("Meal and Mood Insights").bold().frame(width: 350).foregroundColor(Color(red: 0.26, green: 0.26, blue: 0.26)).padding(10)
+            Text("All Insights").bold().frame(width: 350).foregroundColor(Color(red: 0.26, green: 0.26, blue: 0.26)).padding(10)
                 .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.9607843160629272, green: 0.8078431487083435, blue: 0.8196078538894653, alpha: 1)), Color(#colorLiteral(red: 0.8196078538894653, green: 0.7529411911964417, blue: 0.9764705896377563, alpha: 1))]), startPoint: .topLeading, endPoint: .bottomTrailing))
                 .cornerRadius(20)
             
@@ -143,7 +143,7 @@ struct UserEntriesView: View {
                 VStack {
                     Spacer()
                     VStack {
-                        Text("Fitness Insights for Today")
+                        Text("Insights for Today")
                             .bold().frame(width: 350)
                             .foregroundColor(Color(red: 0.26, green: 0.26, blue: 0.26)).padding(10)
                             .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.9607843160629272, green: 0.8078431487083435, blue: 0.8196078538894653, alpha: 1)), Color(#colorLiteral(red: 0.8196078538894653, green: 0.7529411911964417, blue: 0.9764705896377563, alpha: 1))]), startPoint: .topLeading, endPoint: .bottomTrailing))
@@ -347,7 +347,7 @@ struct UserEntriesView: View {
         }
         
         
-        return Text("Keep up the good work.")
+        return Text(" ")
             .foregroundColor(.red)
 
         
@@ -356,16 +356,17 @@ struct UserEntriesView: View {
     
     private func lifestylescore(for userModel: UserModel) -> some View {
         var points = 0.0
-//        if userModel.nightMood == "Sad"{
-//            points += 1
-//        }else if userModel.nightMood == "Neutral"{
-//            points += 10
-//        }else if userModel.nightMood == "Happy"{
-//            points += 20
-//        }
-//        else if userModel.nightMood == "Ecstatic"{
-//            points += 30
-//        }
+        
+        if userModel.nightMood == "Sad"{
+            points += 1
+        }else if userModel.nightMood == "Neutral"{
+            points += 10
+        }else if userModel.nightMood == "Happy"{
+            points += 20
+        }
+        else if userModel.nightMood == "Ecstatic"{
+            points += 30
+        }
         
         if let dessertCaloriesString = userModel.cal_des, let dessertCalories = Int(dessertCaloriesString),
            let lunchCaloriesString = userModel.cal_lun, let lunchCalories = Int(lunchCaloriesString),
@@ -386,18 +387,18 @@ struct UserEntriesView: View {
             
             
         }
-    
-        return  Text("Lifestyle Score: " + String(points) + "/100").bold()
+        if points > 100{
+            return  Text("Lifestyle Score: " + "100/100").bold()
+        }else{
+            return  Text("Lifestyle Score: " + String(points) + "/100").bold()
+        }
+        
 
         
     }
     
-
-    
     
 }
-
-
 
    
 extension String {

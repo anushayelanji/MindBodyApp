@@ -6,7 +6,7 @@ struct ContentView: View {
     @ObservedObject var userEntries = UserEntries()
     
     @State private var selectedDate = Date()
-    @State private var showingReminderView = false
+    @State private var showingMoodView = false
     @State private var showingFoodView = false
     @State private var reminders: [Reminder] = []
     @State private var foods: [Food] = []
@@ -22,7 +22,7 @@ struct ContentView: View {
             
                 HStack{
                     Button("Add Mood") {
-                        showingReminderView = true
+                        showingMoodView = true
                         //first = true
                     }.font(.headline)
                         .foregroundColor(Color(red: 0.26, green: 0.26, blue: 0.26))
@@ -32,9 +32,9 @@ struct ContentView: View {
                         .cornerRadius(10)
                         //.padding()
                     
-                    .sheet(isPresented: $showingReminderView) {
+                    .sheet(isPresented: $showingMoodView) {
                         if let userID = sessionManager.currentUser?.username {
-                            ReminderView(userID: userID, date: selectedDate, reminders: $reminders)
+                            MoodView(userID: userID, date: selectedDate, reminders: $reminders)
                            
                         } else {
                             Text("No user logged in")

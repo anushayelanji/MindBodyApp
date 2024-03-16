@@ -38,14 +38,14 @@ struct TabbedView: View {
                 Label("Home", systemImage: "house")
             }
             
-            //Calender tab
+            //Calendar tab
             NavigationView {
                 VStack {
                     ContentView()
-                    Spacer() // This pushes the calendar to the top
+                    Spacer()
                 }
             }
-            .navigationBarTitle("Title")
+            //.navigationBarTitle("Title")
             .navigationBarTitleDisplayMode(.inline)
             .tabItem {
                 Label("Calendar", systemImage: "calendar")

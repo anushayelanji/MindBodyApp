@@ -85,6 +85,7 @@ struct FoodView: View {
                         print("Date: \(entry.date)")
                         print("Breakfast: " + (entry.breakfast ?? "Empty breakfast") + " Calories: " + (entry.cal_brek ?? "Empty breakfast cals"))
                         print("Lunch: " + (entry.lunch ?? "Empty lunch") + " Calories: " + (entry.cal_lun ?? "Empty lunch cals"))
+                        print("Dinner: " + (entry.dinner ?? "Empty dinner") + " Calories: " + (entry.cal_din ?? "Empty dessert cals"))
                         print("Dessert: " + (entry.dessert ?? "Empty dessert") + " Calories: " + (entry.cal_des ?? "Empty dessert cals"))
                         //print(entry.cal_des ?? "Empty dessert cals")
                         print("Morning Mood: " + (entry.morningMood ?? "Empty mood"))
